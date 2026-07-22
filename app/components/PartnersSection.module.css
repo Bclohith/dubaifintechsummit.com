@@ -1,0 +1,147 @@
+/* ========================================
+   PARTNERS DOUBLE-ROW TICKER STYLES
+   ======================================== */
+
+.section {
+  position: relative;
+  width: 100%;
+  padding: 8rem 0;
+  background: #ffffff; /* White background as requested */
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.ambientGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(0, 229, 229, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.container {
+  width: 100%;
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.headerArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.headerArea.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.preTitle {
+  font-family: var(--font-secondary);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #0d1f3c;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  opacity: 0.8;
+}
+
+.title {
+  font-family: var(--font-primary);
+  font-size: clamp(2.2rem, 3.8vw, 2.8rem);
+  font-weight: 850;
+  color: #082028; /* Dark color for readability on white */
+  letter-spacing: -0.015em;
+  text-transform: lowercase;
+  margin-bottom: 1.25rem;
+}
+
+.titleLine {
+  width: 70px;
+  height: 3px;
+  background: #082028;
+}
+
+/* Ticker Container & Layouts */
+.tickerContainer {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.tickerTrack {
+  display: flex;
+  width: max-content;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.logoWrapper {
+  flex: 0 0 auto;
+  width: 170px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff; /* White card bg */
+  border: 1px solid rgba(0, 0, 0, 0.05); /* Dark subtle border */
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.02);
+  transition: none; /* No hover translations */
+}
+
+.logoWrapper:hover {
+  transform: none; /* No hover translations */
+}
+
+.partnerLogo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  opacity: 1; /* Full opacity by default */
+  filter: none; /* Original color (No filters/brightness adjustments) */
+}
+
+/* Animations mapping */
+.reverseTicker {
+  animation: scrollReverse 40s linear infinite;
+}
+
+.forwardTicker {
+  animation: scrollForward 40s linear infinite;
+}
+
+@keyframes scrollReverse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollForward {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

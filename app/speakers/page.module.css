@@ -1,0 +1,117 @@
+/* ============================================================
+   SPEAKERS PAGE STYLES
+   ============================================================ */
+
+.main {
+  min-height: 100vh;
+  background: var(--color-bg-dark);
+  color: var(--color-text-white);
+  overflow-x: hidden;
+}
+
+.heroSection {
+  position: relative;
+  height: 40vh;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #0a1f35 0%, #040c17 100%);
+  padding-top: 80px;
+  text-align: center;
+  border-bottom: 1px solid rgba(18, 233, 233, 0.1);
+}
+
+.heroTitle {
+  font-family: var(--font-primary);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.textGradient {
+  background: linear-gradient(135deg, #12e9e9 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroSubtitle {
+  font-family: var(--font-secondary);
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.konfhubSection {
+  padding: 6rem 0;
+  background: #040c17;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* 
+  Provide baseline styles for the KonfHub widget so it blends with our theme.
+  The original widget uses .konfhub-speakers-grid, .speaker-card, etc.
+*/
+
+:global(.konfhub-speakers-grid) {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 20px !important;
+}
+
+:global(.speaker-card) {
+  background: rgba(13, 31, 60, 0.4) !important;
+  border: 1px solid rgba(18, 233, 233, 0.15) !important;
+  border-radius: 12px !important;
+  padding: 20px !important;
+  text-align: center !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+:global(.speaker-card:hover) {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(18, 233, 233, 0.4) !important;
+}
+
+:global(.speaker-photo img) {
+  width: 120px !important;
+  height: 120px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  margin: 0 auto 15px auto !important;
+  border: 2px solid rgba(18, 233, 233, 0.3) !important;
+}
+
+:global(.speaker-name) {
+  font-family: var(--font-primary) !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  margin-bottom: 5px !important;
+}
+
+:global(.speaker-designation), :global(.speaker-company) {
+  font-family: var(--font-secondary) !important;
+  font-size: 0.9rem !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+@media (max-width: 1280px) {
+  :global(.konfhub-speakers-grid) { grid-template-columns: repeat(4, 1fr) !important; }
+}
+@media (max-width: 1024px) {
+  :global(.konfhub-speakers-grid) { grid-template-columns: repeat(3, 1fr) !important; }
+}
+@media (max-width: 768px) {
+  :global(.konfhub-speakers-grid) { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 480px) {
+  :global(.konfhub-speakers-grid) { grid-template-columns: 1fr !important; }
+}

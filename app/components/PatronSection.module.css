@@ -1,0 +1,239 @@
+/* ========================================
+   MAJESTIC TYPOGRAPHIC REVEAL - PATRON
+   ======================================== */
+
+.section {
+  position: relative;
+  width: 100%;
+  padding: 8rem 0 4rem;
+  background: transparent;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+/* Patron Content Block */
+.patronContent {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 4rem;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(13, 31, 60, 0.4) 0%, transparent 100%);
+  border-left: 2px solid var(--color-primary);
+  padding: 4rem;
+  border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.patronContent.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.patronLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.patronBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-secondary);
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  letter-spacing: 0.2em;
+}
+
+.badgeDot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--color-primary);
+}
+
+.goldLine {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(0, 229, 229, 0.4), transparent);
+}
+
+.patronRight {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.patronName {
+  font-family: var(--font-primary);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 800;
+  color: var(--color-text-white);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.patronTitle {
+  font-family: var(--font-secondary);
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+/* Sponsor Track Section - Clean & Readable */
+.sponsorsWrap {
+  width: 100%;
+  margin-top: 6rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+
+.sponsorsWrap.revealSponsors {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sponsorHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.sponsorLabel {
+  font-family: var(--font-secondary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.sponsorLine {
+  width: 40px;
+  height: 2px;
+  background: var(--color-primary);
+}
+
+.logoTrackContainer {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: #ffffff; /* Use a crisp white background for the track to ensure logos are 100% visible */
+  padding: 2.5rem 0;
+  border-top: 1px solid rgba(0, 229, 229, 0.3);
+  border-bottom: 1px solid rgba(0, 229, 229, 0.3);
+}
+
+.logoTrackContainer::before,
+.logoTrackContainer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 150px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.logoTrackContainer::before {
+  left: 0;
+  background: linear-gradient(90deg, #ffffff 0%, transparent 100%);
+}
+
+.logoTrackContainer::after {
+  right: 0;
+  background: linear-gradient(-90deg, #ffffff 0%, transparent 100%);
+}
+
+.logoTrack {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  width: max-content;
+  animation: scroll 40s linear infinite;
+}
+
+.logoTrack:hover {
+  animation-play-state: paused;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 80px;
+  transition: transform var(--transition-base);
+}
+
+.logoWrapper:hover {
+  transform: scale(1.05);
+}
+
+/* NO HEAVY FILTERS - Pure Readability */
+.sponsorLogo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  /* Very slight desaturation if needed, but keeping opacity at 1 so they pop on the white background */
+  filter: grayscale(10%); 
+  opacity: 1;
+  transition: all var(--transition-base);
+}
+
+.logoWrapper:hover .sponsorLogo {
+  filter: grayscale(0%);
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .patronContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 3rem;
+  }
+  
+  .goldLine {
+    width: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .patronContent {
+    padding: 2rem;
+  }
+  
+  .logoTrackContainer::before,
+  .logoTrackContainer::after {
+    width: 60px;
+  }
+  
+  .logoWrapper {
+    width: 140px;
+    height: 60px;
+  }
+}

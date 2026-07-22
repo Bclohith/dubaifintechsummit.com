@@ -1,0 +1,217 @@
+/* ========================================
+   FLOATING PARALLAX SCATTER - EXHIBIT SECTION
+   ======================================== */
+
+.section {
+  position: relative;
+  width: 100%;
+  padding: 12rem 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 700px;
+}
+
+/* Foreground Info Block */
+.infoBlock {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 100%;
+  max-width: 650px;
+  text-align: center;
+  background: rgba(6, 15, 29, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(0, 229, 229, 0.2);
+  border-radius: var(--radius-xl);
+  padding: 4rem 3rem;
+  box-shadow: 
+    0 40px 80px rgba(0, 0, 0, 0.8),
+    inset 0 0 50px rgba(0, 229, 229, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.decoLines {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.decoArrow {
+  width: 15px;
+  height: 25px;
+  border-right: 3px solid rgba(0, 229, 229, 0.4);
+  border-bottom: 3px solid rgba(0, 229, 229, 0.4);
+  transform: rotate(45deg);
+}
+
+.title {
+  font-family: var(--font-primary);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  color: var(--color-text-white);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.description {
+  font-family: var(--font-secondary);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--color-text-light);
+  line-height: 1.75;
+  margin-bottom: 3rem;
+}
+
+.actionWrap {
+  display: flex;
+  justify-content: center;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.85rem 0.85rem 0.85rem 2.2rem;
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #040c17;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  border-radius: var(--radius-full);
+  box-shadow: 0 10px 30px rgba(0, 229, 229, 0.3);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ctaBtn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 229, 229, 0.4);
+}
+
+.arrowCircle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #040c17;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+.ctaBtn:hover .arrowCircle {
+  background: #ffffff;
+  color: #040c17;
+  transform: rotate(45deg);
+}
+
+/* Background Scatter Layer */
+.scatterGrid {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.scatterItem {
+  position: absolute;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(0, 229, 229, 0.15);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  opacity: 0.8;
+  transition: all 0.5s ease;
+}
+
+.scatterImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.2) contrast(1.1);
+}
+
+.imageGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0, 229, 229, 0.2) 0%, transparent 60%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Hardcoded Asymmetrical Scatter Positions */
+.scatterPos1 {
+  top: -5%;
+  left: 5%;
+  width: 300px;
+  height: 400px;
+  transform: rotate(-10deg);
+  animation: floatScatter 10s ease-in-out infinite alternate;
+}
+
+.scatterPos2 {
+  top: 10%;
+  right: 5%;
+  width: 450px;
+  height: 300px;
+  transform: rotate(5deg);
+  animation: floatScatter 12s ease-in-out infinite alternate-reverse;
+}
+
+.scatterPos3 {
+  bottom: 0%;
+  left: 15%;
+  width: 350px;
+  height: 250px;
+  transform: rotate(8deg);
+  animation: floatScatter 14s ease-in-out infinite alternate;
+}
+
+.scatterPos4 {
+  bottom: -10%;
+  right: 15%;
+  width: 250px;
+  height: 350px;
+  transform: rotate(-5deg);
+  animation: floatScatter 11s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes floatScatter {
+  0% { transform: translateY(0) rotate(var(--rotation, 0deg)); }
+  100% { transform: translateY(-30px) rotate(calc(var(--rotation, 0deg) + 2deg)); }
+}
+
+/* Responsive configurations */
+@media (max-width: 1200px) {
+  .scatterPos1 { width: 250px; height: 350px; left: -2%; }
+  .scatterPos2 { width: 350px; height: 250px; right: -2%; }
+  .scatterPos3 { width: 250px; height: 200px; left: 5%; bottom: 5%; }
+  .scatterPos4 { width: 200px; height: 300px; right: 5%; bottom: 5%; }
+}
+
+@media (max-width: 900px) {
+  .section { padding: 6rem 0; }
+  .container { min-height: 500px; }
+  .infoBlock {
+    max-width: 90%;
+    padding: 3rem 2rem;
+  }
+  
+  .scatterItem { opacity: 0.3; } /* Dim backgrounds heavily on mobile to ensure text readability */
+}

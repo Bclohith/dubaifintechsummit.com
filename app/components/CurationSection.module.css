@@ -1,0 +1,262 @@
+/* ========================================
+   MASSIVE TYPOGRAPHIC RINGS - CURATION
+   ======================================== */
+
+.section {
+  position: relative;
+  width: 100%;
+  padding: 10rem 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+.ambientGlow {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  width: 800px;
+  height: 800px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(0, 229, 229, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100px 100px;
+  opacity: 0.5;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* Left: Editorial Block */
+.infoBlock {
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.infoBlock.revealLeft {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.eyebrowWrapper {
+  margin-bottom: 2rem;
+  border-left: 2px solid var(--color-primary);
+  padding-left: 1rem;
+}
+
+.eyebrowText {
+  font-family: var(--font-secondary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--color-primary);
+}
+
+.title {
+  font-family: var(--font-primary);
+  font-size: clamp(3rem, 5vw, 4.2rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+}
+
+.cyanGradient {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #b026ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.description {
+  font-family: var(--font-secondary);
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+  margin-bottom: 3rem;
+  max-width: 90%;
+}
+
+.exploreLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  width: fit-content;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.exploreLink:hover {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+  gap: 1.5rem;
+}
+
+/* Right: Stats Rings 3x2 Grid */
+.statsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem 1.5rem;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.statItem.revealRight {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ringWrapper {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.ringSvg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg); /* Start ring at top */
+}
+
+.ringTrack {
+  fill: transparent;
+  stroke: rgba(255, 255, 255, 0.05);
+  stroke-width: 4;
+}
+
+.ringProgress {
+  fill: transparent;
+  stroke: url(#cyanGrad); /* Fallback to primary if gradient not defined in SVG */
+  stroke: var(--color-primary); 
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+
+.ringContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.number {
+  font-family: var(--font-primary);
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.plus {
+  color: var(--color-primary);
+  font-size: 2rem;
+  vertical-align: super;
+}
+
+.statLabel {
+  font-family: var(--font-secondary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.4;
+  max-width: 160px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .statsContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 5rem;
+  }
+  
+  .infoBlock {
+    text-align: center;
+    align-items: center;
+  }
+  
+  .description {
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 768px) {
+  .statsContainer {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .ringWrapper {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .ringSvg {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .ringTrack, .ringProgress {
+    cx: 80;
+    cy: 80;
+    r: 65; /* smaller radius for mobile */
+  }
+  
+  .number {
+    font-size: 3rem;
+  }
+}

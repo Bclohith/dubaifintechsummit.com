@@ -1,0 +1,466 @@
+/* ============================================================
+   IN THE NEWS — WHITE EDITORIAL REDESIGN
+   ============================================================ */
+
+.section {
+  position: relative;
+  width: 100%;
+  padding: 7rem 0 0;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  padding: 0 2rem;
+  margin-bottom: 4.5rem;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-secondary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #12e9e9;
+  background: #0b1d35;
+  padding: 0.35rem 1rem;
+  border-radius: 100px;
+  margin-bottom: 1.25rem;
+}
+
+.title {
+  font-family: var(--font-primary);
+  font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+  font-weight: 800;
+  color: #0b1d35;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.title em {
+  font-style: italic;
+  font-weight: 400;
+  color: #1a3c6e;
+}
+
+.subtitle {
+  font-family: var(--font-secondary);
+  font-size: 1.05rem;
+  color: #64748b;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+/* ── Content: two-column split layout ── */
+.contentWrap {
+  display: grid;
+  grid-template-columns: 1fr 1.75fr;
+  gap: 2px;
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+/* ── Featured Hero Card (left column) ── */
+.featuredCard {
+  position: relative;
+  background-color: #0b1d35;
+  background-image: url('/news_card_bg.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px 0 0 20px;
+  padding: 3.5rem 3rem 3.5rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 420px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.featuredCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(11, 29, 53, 0.85) 0%, rgba(11, 29, 53, 0.95) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.featuredCard > * {
+  position: relative;
+  z-index: 2;
+}
+
+.featuredCard.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.heroQuoteMark {
+  font-family: Georgia, serif;
+  font-size: 8rem;
+  line-height: 0.8;
+  color: rgba(18, 233, 233, 0.18);
+  position: absolute;
+  top: 1.5rem;
+  left: 2.5rem;
+  pointer-events: none;
+}
+
+.heroQuote {
+  font-family: var(--font-primary);
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.45;
+  position: relative;
+  z-index: 2;
+  margin: 3.5rem 0 2rem;
+  flex: 1;
+}
+
+.heroFooter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.heroDash {
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: #12e9e9;
+  flex-shrink: 0;
+}
+
+.heroPublication {
+  font-family: var(--font-secondary);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #12e9e9;
+}
+
+/* Decorative radial ink behind featured card */
+.inkSplash {
+  position: absolute;
+  bottom: -60px;
+  right: -60px;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(18, 233, 233, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Secondary Cards Grid (right column) ── */
+.gridWrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.card {
+  position: relative;
+  background-color: #f8fafc;
+  background-image: url('/news_card_bg.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 2.2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 210px;
+  border-left: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  transition:
+    background 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease,
+    opacity 0.6s ease;
+  opacity: 0;
+  transform: translateY(24px);
+  cursor: default;
+  overflow: hidden;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.85); /* Light overlay to keep text readable since these cards were light mode */
+  pointer-events: none;
+  z-index: 1;
+  transition: background 0.35s ease;
+}
+
+.card:hover::after {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card:hover {
+  background: #ffffff;
+  box-shadow: 0 12px 40px rgba(11, 29, 53, 0.10);
+  transform: translateY(-4px) scale(1.01);
+  z-index: 2;
+}
+
+/* Thin left accent bar on hover */
+.card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #12e9e9;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.35s ease;
+  border-radius: 0 2px 2px 0;
+}
+
+.card:hover::before {
+  transform: scaleY(1);
+}
+
+/* ── Tag Badge ── */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-secondary);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
+  width: fit-content;
+  margin-bottom: 0.85rem;
+}
+
+/* ── Decorative quote mark for cards ── */
+.quoteMark {
+  font-family: Georgia, serif;
+  font-size: 3.5rem;
+  line-height: 0.6;
+  color: rgba(11, 29, 53, 0.08);
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.card:hover .quoteMark {
+  color: rgba(18, 233, 233, 0.18);
+}
+
+/* ── Card quote text ── */
+.cardQuote {
+  font-family: var(--font-secondary);
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #334155;
+  line-height: 1.65;
+  flex: 1;
+  transition: color 0.3s ease;
+}
+
+.card:hover .cardQuote {
+  color: #0b1d35;
+}
+
+/* ── Card footer ── */
+.cardFooter {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(11, 29, 53, 0.06);
+}
+
+.cardDash {
+  display: block;
+  width: 16px;
+  height: 2px;
+  background: #12e9e9;
+  flex-shrink: 0;
+  transition: width 0.3s ease;
+}
+
+.card:hover .cardDash {
+  width: 28px;
+}
+
+.cardPublication {
+  font-family: var(--font-primary);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #64748b;
+  transition: color 0.3s ease;
+}
+
+.card:hover .cardPublication {
+  color: #0b1d35;
+}
+
+/* ── Marquee Press Ticker ── */
+.marqueeWrap {
+  margin-top: 5rem;
+  background: #0b1d35;
+  border-top: 1px solid rgba(18, 233, 233, 0.15);
+  padding: 1.4rem 0;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  overflow: hidden;
+}
+
+.marqueeLabel {
+  font-family: var(--font-secondary);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #12e9e9;
+  white-space: nowrap;
+  padding-left: 2.5rem;
+  padding-right: 1.5rem;
+  border-right: 1px solid rgba(18, 233, 233, 0.25);
+  flex-shrink: 0;
+}
+
+.marqueeTrack {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Fade edges */
+.marqueeTrack::before,
+.marqueeTrack::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marqueeTrack::before {
+  left: 0;
+  background: linear-gradient(90deg, #0b1d35, transparent);
+}
+
+.marqueeTrack::after {
+  right: 0;
+  background: linear-gradient(-90deg, #0b1d35, transparent);
+}
+
+.marqueeInner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: max-content;
+  animation: marqueeScroll 28s linear infinite;
+}
+
+.marqueeItem {
+  font-family: var(--font-secondary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.marqueeItem:hover {
+  color: #12e9e9;
+}
+
+.marqueeDot {
+  color: rgba(18, 233, 233, 0.4);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+@keyframes marqueeScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .contentWrap {
+    grid-template-columns: 1fr;
+    gap: 2px;
+    padding: 0 1.5rem;
+  }
+
+  .featuredCard {
+    border-radius: 16px 16px 0 0;
+    min-height: 320px;
+  }
+
+  .gridWrap {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 5rem 0 0;
+  }
+
+  .gridWrap {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contentWrap {
+    padding: 0 1rem;
+  }
+
+  .card {
+    min-height: 180px;
+  }
+}
+
+@media (max-width: 520px) {
+  .gridWrap {
+    grid-template-columns: 1fr;
+  }
+
+  .marqueeLabel {
+    display: none;
+  }
+}

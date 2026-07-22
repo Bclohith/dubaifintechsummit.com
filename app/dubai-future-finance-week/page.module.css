@@ -1,0 +1,358 @@
+/* ============================================================
+   DUBAI FUTURE FINANCE WEEK - Premium 3D Glassmorphic Theme
+   ============================================================ */
+
+.main {
+  min-height: 100vh;
+  background: var(--color-bg-dark);
+  color: var(--color-text-white);
+  overflow-x: hidden;
+}
+
+/* ── Hero Section ── */
+.heroSection {
+  position: relative;
+  height: 85vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #030811;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+.ambientLight {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 80vw;
+  height: 80vw;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 60%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.gridLayer {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  transform: perspective(1000px) rotateX(70deg) translateY(200px) translateZ(-100px);
+  opacity: 0.4;
+  mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 900px;
+  padding: 0 2rem;
+  animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.logoWrapper {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.heroLogo {
+  max-width: 300px;
+  height: auto;
+  filter: drop-shadow(0 0 20px rgba(18, 233, 233, 0.3));
+}
+
+.heroTitle {
+  font-family: var(--font-primary);
+  font-size: clamp(3rem, 5vw, 5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.textGradient {
+  background: linear-gradient(135deg, #12e9e9 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroSubtitle {
+  font-family: var(--font-secondary);
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ── Features Section ── */
+.featuresSection {
+  position: relative;
+  padding: 6rem 0 10rem 0;
+  background: #030811;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.introBlock {
+  max-width: 800px;
+  margin: 0 auto 5rem auto;
+  text-align: center;
+}
+
+.introText {
+  font-family: var(--font-secondary);
+  font-size: 1.4rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-bottom: 8rem;
+}
+
+.featureCard {
+  position: relative;
+  background: rgba(13, 31, 60, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 1px; /* For gradient border effect */
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-15px);
+}
+
+.cardGlow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top, rgba(18, 233, 233, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.featureCard:hover .cardGlow {
+  opacity: 1;
+}
+
+.cardImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-radius: 19px 19px 0 0;
+  z-index: 1;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.featureCard:hover .cardImage {
+  transform: scale(1.05);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 0%, #060e18 100%);
+}
+
+.cardContent {
+  position: relative;
+  background: #060e18;
+  border-radius: 0 0 19px 19px;
+  padding: 0 2rem 3rem 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  margin-top: -10px; /* Blend seamlessly with the gradient overlay */
+}
+
+.cardTitle {
+  font-family: var(--font-primary);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.cardText {
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ── CTA Section ── */
+.ctaSection {
+  position: relative;
+  background: linear-gradient(135deg, rgba(18, 233, 233, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 30px;
+  padding: 6rem 3rem;
+  text-align: center;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.ctaInner {
+  position: relative;
+  z-index: 10;
+}
+
+.ctaSection h2 {
+  font-family: var(--font-primary);
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.ctaSection p {
+  font-family: var(--font-secondary);
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 3rem;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.btnPrimary {
+  background: linear-gradient(90deg, #12e9e9 0%, #00b3b3 100%);
+  color: #000;
+  padding: 14px 32px;
+  border-radius: 100px;
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(18, 233, 233, 0.3);
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(18, 233, 233, 0.5);
+}
+
+.btnOutline {
+  background: transparent;
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 100px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btnOutline:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Abstract Shapes */
+.shape1, .shape2 {
+  position: absolute;
+  background: rgba(18, 233, 233, 0.2);
+  filter: blur(40px);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.shape1 {
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  left: -100px;
+  animation: floatShape 10s infinite ease-in-out alternate;
+}
+
+.shape2 {
+  width: 400px;
+  height: 400px;
+  bottom: -150px;
+  right: -100px;
+  background: rgba(168, 85, 247, 0.2);
+  animation: floatShape 12s infinite ease-in-out alternate-reverse;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatShape {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(30px, 30px) scale(1.1); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .featuresGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    min-height: 500px;
+    height: 70vh;
+  }
+  
+  .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .introText {
+    font-size: 1.2rem;
+  }
+  
+  .buttonGroup {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .btnPrimary, .btnOutline {
+    text-align: center;
+  }
+}

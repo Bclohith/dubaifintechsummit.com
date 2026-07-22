@@ -1,0 +1,316 @@
+/* ========================================
+   EXPANDING ACCORDION GALLERY - SPEAKERS
+   ======================================== */
+
+.section {
+  position: relative;
+  width: 100%;
+  padding: 8rem 0 10rem;
+  background: transparent;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Header Block */
+.headerBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 4rem;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.headerBlock.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.titleInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.preTitle {
+  font-family: var(--font-secondary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.title {
+  font-family: var(--font-primary);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  color: var(--color-text-white);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.titleLine {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), transparent);
+  border-radius: var(--radius-full);
+}
+
+.viewAllBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  font-family: var(--font-secondary);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-bg-dark);
+  background: var(--color-text-white);
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.viewAllBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(0, 229, 229, 0.4);
+  background: var(--color-primary);
+}
+
+.viewAllBtn svg {
+  transition: transform 0.3s ease;
+}
+
+.viewAllBtn:hover svg {
+  transform: translateX(4px);
+}
+
+/* Accordion Wrapper */
+.accordionWrapper {
+  width: 100%;
+  padding: 0 2.5rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+
+.accordionWrapper.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.accordionContainer {
+  display: flex;
+  width: 100%;
+  height: 600px;
+  gap: 1rem;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+/* Accordion Item */
+.accordionItem {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  min-width: 80px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition: flex 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  background: rgba(13, 31, 60, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.accordionItem.active {
+  flex: 6;
+  border-color: rgba(0, 229, 229, 0.3);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.8),
+    inset 0 0 40px rgba(0, 229, 229, 0.1);
+}
+
+/* Image */
+.imageBox {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem; /* Decreases the image size */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.speakerImage {
+  width: 100%;
+  height: 90%;
+  object-fit: contain; /* ensures the whole speaker is visible without getting cut off too big */
+  object-position: bottom center;
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: grayscale(80%) sepia(20%) hue-rotate(180deg);
+  opacity: 0.6;
+}
+
+.accordionItem.active .speakerImage {
+  filter: grayscale(10%) sepia(0%);
+  opacity: 1;
+  transform: scale(1.05); /* slightly zoom in when hovered, but base size is smaller */
+}
+
+.gradientScrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(6, 15, 29, 0.95) 100%);
+}
+
+.tagLabel {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 229, 229, 0.4);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-secondary);
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.6s ease;
+}
+
+.accordionItem.active .tagLabel {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+/* Vertical Title (Collapsed State) */
+.verticalTitle {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-90deg);
+  transform-origin: left bottom;
+  white-space: nowrap;
+  font-family: var(--font-primary);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: opacity 0.4s ease;
+}
+
+.accordionItem.active .verticalTitle {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Expanded Details */
+.expandedDetails {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.accordionItem.active .expandedDetails {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.speakerName {
+  font-family: var(--font-primary);
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 900;
+  color: var(--color-text-white);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.dividerLine {
+  width: 40px;
+  height: 3px;
+  background: var(--color-primary);
+  margin: 1rem 0;
+}
+
+.speakerTitle {
+  font-family: var(--font-secondary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text-light);
+  line-height: 1.4;
+  margin-bottom: 0.25rem;
+}
+
+.speakerCompany {
+  font-family: var(--font-secondary);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Responsive configurations */
+@media (max-width: 1200px) {
+  .accordionContainer {
+    height: 500px;
+  }
+}
+
+@media (max-width: 900px) {
+  .headerBlock {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  
+  .accordionContainer {
+    flex-direction: column;
+    height: 800px;
+  }
+  
+  .accordionItem {
+    min-width: auto;
+    min-height: 60px;
+  }
+  
+  .verticalTitle {
+    transform: none;
+    bottom: auto;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+  }
+}

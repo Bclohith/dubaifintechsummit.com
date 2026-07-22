@@ -1,0 +1,388 @@
+/* ============================================================
+   ABOUT PAGE STYLES - Premium 3D Glassmorphic Theme
+   ============================================================ */
+
+.main {
+  min-height: 100vh;
+  background: var(--color-bg-dark);
+  color: var(--color-text-white);
+  overflow-x: hidden;
+}
+
+/* ── Hero Section ── */
+.heroSection {
+  position: relative;
+  height: 80vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #0a1f35 0%, #040c17 100%);
+  padding-top: 80px; /* Offset for navbar */
+}
+
+.heroGrid {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(rgba(18, 233, 233, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(18, 233, 233, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  transform: perspective(1000px) rotateX(60deg) translateY(100px) translateZ(-200px);
+  opacity: 0.5;
+}
+
+.heroGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(18, 233, 233, 0.15) 0%, transparent 60%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 900px;
+  padding: 0 2rem;
+  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(18, 233, 233, 0.1);
+  border: 1px solid rgba(18, 233, 233, 0.3);
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-family: var(--font-secondary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+}
+
+.badgeDot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--color-primary);
+}
+
+.heroTitle {
+  font-family: var(--font-primary);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.textGradient {
+  background: linear-gradient(135deg, #12e9e9 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroSubtitle {
+  font-family: var(--font-secondary);
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.05em;
+}
+
+/* 3D Decorators */
+.floatingCube1, .floatingCube2 {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, rgba(18, 233, 233, 0.2), rgba(168, 85, 247, 0.2));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  z-index: 5;
+  animation: float 8s ease-in-out infinite;
+}
+
+.floatingCube1 {
+  top: 20%;
+  left: 10%;
+  transform: rotate3d(1, 1, 1, 45deg);
+}
+
+.floatingCube2 {
+  bottom: 20%;
+  right: 10%;
+  width: 100px;
+  height: 100px;
+  transform: rotate3d(1, -1, 1, 45deg);
+  animation-delay: -4s;
+}
+
+/* ── Content Section ── */
+.contentSection {
+  position: relative;
+  padding: 8rem 0;
+  background: #040c17;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.missionGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+  margin-bottom: 8rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-primary);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+}
+
+.divider {
+  width: 60px;
+  height: 4px;
+  background: var(--color-primary);
+  margin-bottom: 2rem;
+  border-radius: 2px;
+}
+
+.paragraph {
+  font-family: var(--font-secondary);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
+}
+
+.missionCards {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.glassCard {
+  background: rgba(13, 31, 60, 0.3);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(18, 233, 233, 0.15);
+  border-radius: 24px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.glassCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.glassCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(18, 233, 233, 0.4);
+}
+
+.cardImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.glassCard:hover .cardImage {
+  transform: scale(1.05);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(13, 31, 60, 0.9) 100%);
+}
+
+.cardTextContent {
+  padding: 2rem;
+  position: relative;
+  z-index: 3;
+}
+
+.glassCard h3 {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.glassCard p {
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ── Vision Section ── */
+.visionSection {
+  position: relative;
+  background: rgba(10, 31, 53, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 30px;
+  padding: 6rem 4rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.visionGlow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+  opacity: 0.5;
+}
+
+.visionContent {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.visionTitle {
+  font-family: var(--font-primary);
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.visionText {
+  font-family: var(--font-secondary);
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 4rem;
+}
+
+/* Stats */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.statBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.statNumber {
+  font-family: var(--font-primary);
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff 0%, #12e9e9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.statLabel {
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: rotate3d(1, 1, 1, 45deg) translateY(0);
+  }
+  50% {
+    transform: rotate3d(1, 1, 1, 60deg) translateY(-30px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .missionGrid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+  
+  .visionSection {
+    padding: 4rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    min-height: 500px;
+    height: 60vh;
+  }
+  
+  .floatingCube1, .floatingCube2 {
+    display: none;
+  }
+  
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

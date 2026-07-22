@@ -1,0 +1,289 @@
+/* ========================================
+   INFINITE MARQUEE CARDS - TOPICS
+   ======================================== */
+
+.section {
+  position: relative;
+  width: 100%;
+  padding: 8rem 0;
+  background: #040b14;
+  overflow: hidden;
+}
+
+.ambientBackground {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(0, 229, 229, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Header */
+.headerContainer {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.headerContainer.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.eyebrow {
+  font-family: var(--font-secondary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--color-primary);
+  background: rgba(0, 229, 229, 0.1);
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+  border: 1px solid rgba(0, 229, 229, 0.3);
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-family: var(--font-primary);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.cyanText {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #b026ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-family: var(--font-secondary);
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+/* Marquee Wrapper */
+.marqueeWrapper {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 1.5s ease 0.3s;
+}
+
+.marqueeWrapper.revealMarquee {
+  opacity: 1;
+}
+
+/* Gradient fade masks for the edges */
+.marqueeWrapper::before,
+.marqueeWrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 15vw;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.marqueeWrapper::before {
+  left: 0;
+  background: linear-gradient(to right, #040b14, transparent);
+}
+
+.marqueeWrapper::after {
+  right: 0;
+  background: linear-gradient(to left, #040b14, transparent);
+}
+
+.marqueeRow {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+
+.marqueeTrackLeft,
+.marqueeTrackRight {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  padding: 1rem 0;
+}
+
+/* Adjust animation durations based on number of items (8 items vs 7 items) */
+.marqueeTrackLeft {
+  animation: scrollLeft 60s linear infinite;
+}
+
+.marqueeTrackRight {
+  animation: scrollRight 50s linear infinite;
+  margin-left: -50%; /* offset to create staggered feel */
+}
+
+/* Pause animation on hover */
+.marqueeTrackLeft:hover,
+.marqueeTrackRight:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* Translate by exactly half the width (which is 1 full set of cards) */
+}
+
+@keyframes scrollRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* Glassmorphic Topic Card */
+.topicCard {
+  position: relative;
+  width: 400px;
+  height: 280px;
+  background: rgba(13, 31, 60, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.topicCard:hover {
+  background: rgba(13, 31, 60, 0.8);
+  border-color: rgba(0, 229, 229, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.cardHeader {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.topicId {
+  font-family: var(--font-secondary);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.15);
+  transition: color 0.4s ease;
+}
+
+.topicCard:hover .topicId {
+  color: var(--color-primary);
+}
+
+.pulseDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  opacity: 0;
+  box-shadow: 0 0 10px var(--color-primary);
+  transition: opacity 0.4s ease;
+}
+
+.topicCard:hover .pulseDot {
+  opacity: 1;
+  animation: dotPulse 1.5s infinite;
+}
+
+@keyframes dotPulse {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+.topicTitle {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-primary);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  transition: color 0.4s ease;
+}
+
+.topicCard:hover .topicTitle {
+  color: var(--color-primary);
+}
+
+.topicDesc {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-secondary);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  transition: color 0.4s ease;
+}
+
+.topicCard:hover .topicDesc {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.cardGlow {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(0, 229, 229, 0.15) 0%, transparent 70%);
+  transform: translate(30%, 30%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.topicCard:hover .cardGlow {
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .topicCard {
+    width: 300px;
+    height: 250px;
+    padding: 1.5rem;
+  }
+  
+  .topicTitle {
+    font-size: 1.2rem;
+  }
+  
+  .marqueeWrapper::before,
+  .marqueeWrapper::after {
+    width: 10vw;
+  }
+}

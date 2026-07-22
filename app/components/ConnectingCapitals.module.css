@@ -1,0 +1,219 @@
+/* ========================================
+   GLOBAL CONVERGENCE - INTERACTIVE RADAR MAP
+   ======================================== */
+
+.section {
+  position: relative;
+  width: 100%;
+  padding: 8rem 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+.ambientGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 50%, rgba(0, 229, 229, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  z-index: 5;
+}
+
+.splitLayout {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+/* Info Block */
+.infoBlock {
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.infoBlock.revealLeft {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.tagline {
+  font-family: var(--font-secondary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-family: var(--font-primary);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: var(--color-text-white);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.cyanGradient {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #b026ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.titleLine {
+  width: 60px;
+  height: 2px;
+  background: var(--color-primary);
+  margin-bottom: 1.5rem;
+}
+
+.description {
+  font-family: var(--font-secondary);
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+}
+
+/* Map Stage */
+.mapStage {
+  position: relative;
+  width: 100%;
+  opacity: 0;
+  transform: translateX(40px);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+  cursor: crosshair;
+}
+
+.mapStage.revealRight {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mapFrame {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(6, 15, 29, 0.5);
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  overflow: hidden;
+}
+
+/* Decorative brackets */
+.bracketTopLeft, .bracketTopRight, .bracketBottomLeft, .bracketBottomRight {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border: 2px solid var(--color-primary);
+  z-index: 10;
+  opacity: 0.6;
+}
+.bracketTopLeft { top: 0; left: 0; border-right: none; border-bottom: none; border-radius: var(--radius-xl) 0 0 0; }
+.bracketTopRight { top: 0; right: 0; border-left: none; border-bottom: none; border-radius: 0 var(--radius-xl) 0 0; }
+.bracketBottomLeft { bottom: 0; left: 0; border-right: none; border-top: none; border-radius: 0 0 0 var(--radius-xl); }
+.bracketBottomRight { bottom: 0; right: 0; border-left: none; border-top: none; border-radius: 0 0 var(--radius-xl) 0; }
+
+.mapImageWrapper {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.mapImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.8s ease;
+  transform: scale(1.02);
+}
+
+.mapStage:hover .mapImage {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Interactive Radar Overlay */
+.radarOverlay {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 15;
+}
+
+.radarOverlay.radarActive {
+  opacity: 1;
+}
+
+.radarRing1, .radarRing2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid var(--color-primary);
+}
+
+.radarRing1 {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0, 229, 229, 0.15) 0%, transparent 60%);
+}
+
+.radarRing2 {
+  width: 40%;
+  height: 40%;
+  border-color: rgba(255, 255, 255, 0.5);
+  animation: pulse 2s infinite;
+}
+
+.radarCrosshairX {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 229, 229, 0.5);
+  transform: translateY(-50%);
+}
+
+.radarCrosshairY {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 100%;
+  background: rgba(0, 229, 229, 0.5);
+  transform: translateX(-50%);
+}
+
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(0.8); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .splitLayout {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}

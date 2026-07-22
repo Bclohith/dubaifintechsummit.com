@@ -1,0 +1,122 @@
+/* ============================================================
+   AGENDA PAGE STYLES
+   ============================================================ */
+
+.main {
+  min-height: 100vh;
+  background: var(--color-bg-dark);
+  color: var(--color-text-white);
+  overflow-x: hidden;
+}
+
+.heroSection {
+  position: relative;
+  height: 40vh;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #0a1f35 0%, #040c17 100%);
+  padding-top: 80px;
+  text-align: center;
+  border-bottom: 1px solid rgba(18, 233, 233, 0.1);
+}
+
+.heroTitle {
+  font-family: var(--font-primary);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.textGradient {
+  background: linear-gradient(135deg, #12e9e9 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroSubtitle {
+  font-family: var(--font-secondary);
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.konfhubSection {
+  padding: 6rem 0;
+  background: #040c17;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* 
+  Provide baseline styles for the KonfHub agenda widget to blend with our theme.
+  We use generic selectors that Konfhub uses internally.
+*/
+
+:global(.konfhub-agenda-wrap) {
+  font-family: var(--font-secondary) !important;
+}
+
+:global(.konfhub-agenda-tabs) {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+:global(.konfhub-agenda-tab) {
+  background: rgba(13, 31, 60, 0.4) !important;
+  border: 1px solid rgba(18, 233, 233, 0.15) !important;
+  border-radius: 8px !important;
+  padding: 10px 20px !important;
+  color: #fff !important;
+  cursor: pointer;
+  transition: all 0.3s ease !important;
+}
+
+:global(.konfhub-agenda-tab.active),
+:global(.konfhub-agenda-tab:hover) {
+  background: rgba(18, 233, 233, 0.1) !important;
+  border-color: rgba(18, 233, 233, 0.5) !important;
+}
+
+:global(.konfhub-agenda-session) {
+  background: rgba(13, 31, 60, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-left: 4px solid var(--color-primary) !important;
+  border-radius: 8px !important;
+  padding: 24px !important;
+  margin-bottom: 1.5rem !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+:global(.konfhub-agenda-session:hover) {
+  transform: translateX(5px) !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+:global(.konfhub-agenda-session-title) {
+  font-family: var(--font-primary) !important;
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  margin-bottom: 10px !important;
+}
+
+:global(.konfhub-agenda-session-time) {
+  color: var(--color-primary) !important;
+  font-weight: 600 !important;
+  margin-bottom: 10px !important;
+}
+
+:global(.konfhub-agenda-session-desc) {
+  color: rgba(255, 255, 255, 0.7) !important;
+  line-height: 1.6 !important;
+}
