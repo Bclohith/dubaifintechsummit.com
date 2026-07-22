@@ -4,14 +4,14 @@ import { useEffect, useState, useRef } from 'react';
 import styles from './StrategicInnovation.module.css';
 
 const features = [
-  { id: '01', title: 'CONFERENCE PROGRAMME', desc: 'Dive into powerful keynotes and sharp panel debates that tackle the real issues shaping global finance.', bg: '/exhibit_new_1.jpg' },
-  { id: '02', title: 'THE INNOVATION ARENA', desc: 'Explore breakthrough technologies and meet the companies redefining financial services.', bg: '/bento_bg_2.jpg' },
-  { id: '03', title: 'STRATEGIC NETWORKING', desc: 'Connect with industry leaders, investors, and innovators ready to turn ideas into action.', bg: '/bento_bg_1.jpg' },
-  { id: '04', title: 'DFS DIALOGUES', desc: 'Closed-door discussions among policymakers and C-suite leaders providing valuable regulatory and market insights.', bg: '/exhibit_new_2.jpg' },
-  { id: '05', title: 'MOUs & PARTNERSHIPS', desc: 'Build high-impact alliances with the people and companies transforming the FinTech landscape.', bg: '/bento_bg_1.jpg' },
-  { id: '06', title: 'FINTECH WORLD CUP', desc: 'Watch top start-ups battle it out live for global recognition, rewards, and investment.', bg: '/bento_bg_2.jpg' },
-  { id: '07', title: 'FINTECH LAUNCHPAD', desc: 'A platform for announcements, innovations, collaboration, and key connections.', bg: '/exhibit_new_1.jpg' },
-  { id: '08', title: 'ECOSYSTEM EVENTS', desc: 'Invite-only sessions and workshops designed for decision-makers driving change across FinTech.', bg: '/exhibit_new_2.jpg' }
+  { id: '01', title: 'CONFERENCE PROGRAMME', desc: 'Dive into powerful keynotes and sharp panel debates that tackle the real issues shaping global finance.', bg: '/dubaifintechsummit.com/' },
+  { id: '02', title: 'THE INNOVATION ARENA', desc: 'Explore breakthrough technologies and meet the companies redefining financial services.', bg: '/dubaifintechsummit.com/' },
+  { id: '03', title: 'STRATEGIC NETWORKING', desc: 'Connect with industry leaders, investors, and innovators ready to turn ideas into action.', bg: '/dubaifintechsummit.com/' },
+  { id: '04', title: 'DFS DIALOGUES', desc: 'Closed-door discussions among policymakers and C-suite leaders providing valuable regulatory and market insights.', bg: '/dubaifintechsummit.com/' },
+  { id: '05', title: 'MOUs & PARTNERSHIPS', desc: 'Build high-impact alliances with the people and companies transforming the FinTech landscape.', bg: '/dubaifintechsummit.com/' },
+  { id: '06', title: 'FINTECH WORLD CUP', desc: 'Watch top start-ups battle it out live for global recognition, rewards, and investment.', bg: '/dubaifintechsummit.com/' },
+  { id: '07', title: 'FINTECH LAUNCHPAD', desc: 'A platform for announcements, innovations, collaboration, and key connections.', bg: '/dubaifintechsummit.com/' },
+  { id: '08', title: 'ECOSYSTEM EVENTS', desc: 'Invite-only sessions and workshops designed for decision-makers driving change across FinTech.', bg: '/dubaifintechsummit.com/' }
 ];
 
 export default function StrategicInnovation() {
