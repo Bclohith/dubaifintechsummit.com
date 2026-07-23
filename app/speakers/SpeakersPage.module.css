@@ -1,79 +1,19 @@
 .wrapper {
   min-height: 100vh;
-  background-color: var(--color-bg-dark);
+  background-color: #ffffff;
   padding-bottom: 8rem;
-}
-
-/* Hero (Keeping the existing premium hero) */
-.heroBanner {
-  position: relative;
-  width: 100%;
-  padding: 12rem 2.5rem 6rem;
-  background: #030811;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  overflow: hidden;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.ambientGlow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 800px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(0, 229, 229, 0.15) 0%, transparent 70%);
-  z-index: 1;
-  pointer-events: none;
-}
-
-.heroContent {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-}
-
-.preTitle {
-  display: block;
-  font-family: var(--font-secondary);
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--color-primary);
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-}
-
-.heroTitle {
-  font-family: var(--font-primary);
-  font-size: clamp(3rem, 6vw, 5rem);
-  font-weight: 900;
-  color: var(--color-text-white);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin-bottom: 1.5rem;
-}
-
-.heroSubtitle {
-  font-family: var(--font-secondary);
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.6;
-  margin-bottom: 2.5rem;
+  padding-top: 6rem; /* Add padding for navbar space since hero is gone */
 }
 
 /* Grid Wrapper */
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 6rem 2.5rem 0;
+  padding: 2rem 2.5rem 0;
 }
 
 .konfhubSpeakersWrap {
-  margin-top: -45px !important;
+  margin-top: 0 !important;
 }
 
 /* Exact CSS applied from User */

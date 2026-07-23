@@ -95,23 +95,13 @@ export default function SpeakersPage() {
       <Navbar />
       
       <div className={styles.wrapper}>
-        {/* Hero Banner */}
-        <div className={styles.heroBanner}>
-          <div className={styles.ambientGlow}></div>
-          <div className={styles.heroContent}>
-            <span className={styles.preTitle}>GLOBAL LEADERSHIP</span>
-            <h1 className={styles.heroTitle}>Speakers</h1>
-            <p className={styles.heroSubtitle}>Hear from the brightest minds, innovators, and regulators shaping the future of finance at the Dubai FinTech Summit.</p>
-          </div>
-        </div>
-
         {/* Speakers Grid Container */}
         <div className={styles.container}>
           <div className={styles.konfhubSpeakersWrap}>
             {loading ? (
               <div className={styles.loader}>
                 <div className={styles.spinner}></div>
-                <p>Loading Speakers...</p>
+                <p style={{color: '#000'}}>Loading Speakers...</p>
               </div>
             ) : (
               <div className={styles.konfhubSpeakersGrid}>
