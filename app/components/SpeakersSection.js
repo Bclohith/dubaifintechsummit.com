@@ -136,7 +136,7 @@ export default function SpeakersSection() {
                     <div className={styles.imageBox}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img 
-                        src={speaker.photo} 
+                        src={assetPath(speaker.photo)} 
                         alt={speaker.name} 
                         className={styles.speakerImage}
                         onError={(e) => {
