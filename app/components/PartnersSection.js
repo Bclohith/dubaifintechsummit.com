@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import styles from './PartnersSection.module.css';
+import { assetPath } from '../utils/assetPath';
 
 export default function PartnersSection() {
   const [mounted, setMounted] = useState(false);
@@ -30,7 +31,7 @@ export default function PartnersSection() {
               <div key={i} className={styles.logoWrapper}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={`/${i + 1}.png`}
+                  src={assetPath(`/${i + 1}.png`)}
                   alt={`Partner Row1 ${i + 1}`}
                   className={styles.partnerLogo}
                   onError={(e) => {
@@ -63,7 +64,7 @@ export default function PartnersSection() {
               <div key={i} className={styles.logoWrapper}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={`/${(22 - i)}.png`}
+                  src={assetPath(`/${(22 - i)}.png`)}
                   alt={`Partner Row2 ${i + 1}`}
                   className={styles.partnerLogo}
                   onError={(e) => {

@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react';
 import styles from './PatronSection.module.css';
+import { assetPath } from '../utils/assetPath';
 
 export default function PatronSection() {
   const [mounted, setMounted] = useState(false);
@@ -62,7 +63,7 @@ export default function PatronSection() {
               <div key={i} className={styles.logoWrapper}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={`/${i + 1}.png`}
+                  src={assetPath(`/${i + 1}.png`)}
                   alt={`Sponsor ${i + 1}`}
                   className={styles.sponsorLogo}
                   onError={(e) => {

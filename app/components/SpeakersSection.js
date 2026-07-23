@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react';
 import styles from './SpeakersSection.module.css';
+import { assetPath } from '../utils/assetPath';
 
 const speakersData = [
   { id: 1, name: 'H.E. Essa Kazim', title: 'Governor', company: 'DIFC', photo: '/essa-kazim.png', tag: 'VIP' },
@@ -67,7 +68,7 @@ export default function SpeakersSection() {
             >
               
               <div className={styles.imageBox}>
-                <img src={speaker.photo} alt={speaker.name} className={styles.speakerImage} />
+                <img src={assetPath(speaker.photo)} alt={speaker.name} className={styles.speakerImage} />
                 <div className={styles.gradientScrim}></div>
                 
                 <div className={styles.tagLabel}>
