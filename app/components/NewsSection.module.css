@@ -78,7 +78,7 @@
 .featuredCard {
   position: relative;
   background-color: #0b1d35;
-  background-image: url('/dubaifintechsummit.com/news_card_bg.jpg');
+  background-image: url('/news_card_bg.jpg');
   background-size: cover;
   background-position: center;
   border-radius: 20px 0 0 20px;
@@ -181,7 +181,7 @@
 .card {
   position: relative;
   background-color: #f8fafc;
-  background-image: url('/dubaifintechsummit.com/news_card_bg.jpg');
+  background-image: url('/news_card_bg.jpg');
   background-size: cover;
   background-position: center;
   padding: 2.2rem 2rem;
