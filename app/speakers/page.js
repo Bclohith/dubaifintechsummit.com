@@ -67,6 +67,15 @@ export default function SpeakersPage() {
           country: "UAE",
           photo: "/placeholder.png",
           bio: "Innovating the banking landscape in the UAE.",
+        },
+        {
+          id: 7,
+          name: "Kentaro Okuda",
+          title: "President & Chief Executive Officer",
+          company: "Nomura Holdings, Inc",
+          country: "Japan",
+          photo: "https://media.konfhub.com/speakers/2026/March/10/1773139013619-f0299db9-0981-4534-bf54-edab1a05cca7.png",
+          bio: "Kentaro Okuda is the President and Group Chief Executive Officer of Nomura Holdings and President of Nomura Securities, and serves as a member of the Board of Directors of Nomura Holdings. With a long-standing career at Nomura since 1987, he has held senior leadership roles across global investment banking, including Global Head of Investment Banking, Global Head of M&A, and Joint Head of Wholesale. Previously, he served as Group Co-COO and President & CEO of Nomura Holding America, leading the firm’s Americas business. Known for his leadership in global capital markets and investment banking, Okuda brings deep insights into international financial markets and institutional strategy.",
         }
       ];
       setSpeakers(mockSpeakers);
