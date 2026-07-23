@@ -62,7 +62,7 @@ export default function ConnectingCapitals() {
               
               <div className={styles.mapImageWrapper}>
                 <img 
-                  src="/dubaifintechsummit.com/" 
+                  src="/world_map_with_cities.jpg" 
                   alt="Global Convergence Map" 
                   className={styles.mapImage}
                 />

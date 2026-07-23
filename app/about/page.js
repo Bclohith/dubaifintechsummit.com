@@ -54,7 +54,7 @@ export default function AboutPage() {
               <div className={styles.missionCards}>
                 <div className={styles.glassCard}>
                   <div className={styles.cardImageWrapper}>
-                    <img src="/dubaifintechsummit.com/" alt="Insurance and risk" className={styles.cardImage} />
+                    <img src="/connected-world.webp" alt="Insurance and risk" className={styles.cardImage} />
                     <div className={styles.imageOverlay} />
                   </div>
                   <div className={styles.cardTextContent}>
@@ -64,7 +64,7 @@ export default function AboutPage() {
                 </div>
                 <div className={styles.glassCard}>
                   <div className={styles.cardImageWrapper}>
-                    <img src="/dubaifintechsummit.com/" alt="Digital assets and tokenisation" className={styles.cardImage} />
+                    <img src="/technology-enterprises.webp" alt="Digital assets and tokenisation" className={styles.cardImage} />
                     <div className={styles.imageOverlay} />
                   </div>
                   <div className={styles.cardTextContent}>

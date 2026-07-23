@@ -21,7 +21,7 @@ export default function DFFWPage() {
         <div className={styles.heroContent}>
           <div className={styles.logoWrapper}>
             <img 
-              src="/dubaifintechsummit.com/" 
+              src="/dubai-future-fintech-week-logo.svg" 
               alt="Dubai Future Finance Week" 
               className={styles.heroLogo} 
             />
@@ -52,7 +52,7 @@ export default function DFFWPage() {
             <div className={styles.featureCard}>
               <div className={styles.cardGlow} />
               <div className={styles.cardImageWrapper}>
-                <img src="/dubaifintechsummit.com/" alt="Global Ecosystem" className={styles.cardImage} />
+                <img src="/connected-world.webp" alt="Global Ecosystem" className={styles.cardImage} />
                 <div className={styles.imageOverlay} />
               </div>
               <div className={styles.cardContent}>
@@ -67,7 +67,7 @@ export default function DFFWPage() {
             <div className={styles.featureCard}>
               <div className={styles.cardGlow} />
               <div className={styles.cardImageWrapper}>
-                <img src="/dubaifintechsummit.com/" alt="Innovation Labs" className={styles.cardImage} />
+                <img src="/fintechs.webp" alt="Innovation Labs" className={styles.cardImage} />
                 <div className={styles.imageOverlay} />
               </div>
               <div className={styles.cardContent}>
@@ -82,7 +82,7 @@ export default function DFFWPage() {
             <div className={styles.featureCard}>
               <div className={styles.cardGlow} />
               <div className={styles.cardImageWrapper}>
-                <img src="/dubaifintechsummit.com/" alt="Executive Networking" className={styles.cardImage} />
+                <img src="/bank-executives.webp" alt="Executive Networking" className={styles.cardImage} />
                 <div className={styles.imageOverlay} />
               </div>
               <div className={styles.cardContent}>
