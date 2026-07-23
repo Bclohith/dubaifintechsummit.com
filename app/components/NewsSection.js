@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import styles from './NewsSection.module.css';
+import { assetPath } from '../utils/assetPath';
 
 const newsItems = [
   {
@@ -89,7 +90,10 @@ export default function NewsSection() {
       <div className={styles.contentWrap}>
 
         {/* ── Left: Featured Hero Quote ── */}
-        <div className={`${styles.featuredCard} ${visible ? styles.visible : ''}`}>
+        <div 
+          className={`${styles.featuredCard} ${visible ? styles.visible : ''}`}
+          style={{ backgroundImage: `url(${assetPath('/news_card_bg.jpg')})` }}
+        >
           <div
             className={styles.tag}
             style={{ background: tagColors[featured.tag]?.bg, color: tagColors[featured.tag]?.text }}
@@ -115,7 +119,10 @@ export default function NewsSection() {
             <div
               key={i}
               className={`${styles.card} ${visible ? styles.visible : ''}`}
-              style={{ transitionDelay: `${(i + 1) * 100}ms` }}
+              style={{ 
+                transitionDelay: `${(i + 1) * 100}ms`,
+                backgroundImage: `url(${assetPath('/news_card_bg.jpg')})`
+              }}
             >
               <div
                 className={styles.tag}

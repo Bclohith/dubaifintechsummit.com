@@ -1,3 +1,4 @@
+import { assetPath } from '../utils/assetPath';
 import React from 'react';
 import styles from './ExhibitSection.module.css';
 
@@ -38,22 +39,22 @@ export default function ExhibitSection() {
         <div className={styles.scatterGrid}>
           
           <div className={`${styles.scatterItem} ${styles.scatterPos1}`}>
-            <img src="/exhibit_new_1.jpg" alt="FinTech Exhibit" className={styles.scatterImage} />
+            <img src={assetPath('/exhibit_new_1.jpg')} alt="FinTech Exhibit" className={styles.scatterImage} />
             <div className={styles.imageGlow}></div>
           </div>
           
           <div className={`${styles.scatterItem} ${styles.scatterPos2}`}>
-            <img src="/exhibit_new_2.jpg" alt="Data Streams" className={styles.scatterImage} />
+            <img src={assetPath('/exhibit_new_2.jpg')} alt="Data Streams" className={styles.scatterImage} />
             <div className={styles.imageGlow}></div>
           </div>
           
           <div className={`${styles.scatterItem} ${styles.scatterPos3}`}>
-            <img src="/exhibit-1.webp" alt="Live Demos" className={styles.scatterImage} />
+            <img src={assetPath('/exhibit-1.webp')} alt="Live Demos" className={styles.scatterImage} />
             <div className={styles.imageGlow}></div>
           </div>
           
           <div className={`${styles.scatterItem} ${styles.scatterPos4}`}>
-            <img src="/exhibit-2.jpg" alt="Networking" className={styles.scatterImage} />
+            <img src={assetPath('/exhibit-2.jpg')} alt="Networking" className={styles.scatterImage} />
             <div className={styles.imageGlow}></div>
           </div>
 

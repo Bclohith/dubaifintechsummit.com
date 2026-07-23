@@ -1,3 +1,4 @@
+import { assetPath } from '../utils/assetPath';
 import React from 'react';
 import styles from './AboutSection.module.css';
 
@@ -10,7 +11,7 @@ export default function AboutSection() {
         {/* Massive 3D Abstract Image spanning the background */}
         <div className={styles.imageBackdrop}>
           <img 
-            src="/about_abstract.jpg" 
+            src={assetPath('/about_abstract.jpg')} 
             alt="3D FinTech Abstract" 
             className={styles.backdropImage}
           />

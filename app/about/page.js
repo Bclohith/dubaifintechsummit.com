@@ -1,3 +1,4 @@
+import { assetPath } from '../utils/assetPath';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import styles from './page.module.css';
@@ -54,7 +55,7 @@ export default function AboutPage() {
               <div className={styles.missionCards}>
                 <div className={styles.glassCard}>
                   <div className={styles.cardImageWrapper}>
-                    <img src="/connected-world.webp" alt="Insurance and risk" className={styles.cardImage} />
+                    <img src={assetPath('/connected-world.webp')} alt="Insurance and risk" className={styles.cardImage} />
                     <div className={styles.imageOverlay} />
                   </div>
                   <div className={styles.cardTextContent}>
@@ -64,7 +65,7 @@ export default function AboutPage() {
                 </div>
                 <div className={styles.glassCard}>
                   <div className={styles.cardImageWrapper}>
-                    <img src="/technology-enterprises.webp" alt="Digital assets and tokenisation" className={styles.cardImage} />
+                    <img src={assetPath('/technology-enterprises.webp')} alt="Digital assets and tokenisation" className={styles.cardImage} />
                     <div className={styles.imageOverlay} />
                   </div>
                   <div className={styles.cardTextContent}>

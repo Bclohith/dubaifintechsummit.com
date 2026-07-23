@@ -1,3 +1,4 @@
+import { assetPath } from '../utils/assetPath';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import styles from './page.module.css';
@@ -21,7 +22,7 @@ export default function DFFWPage() {
         <div className={styles.heroContent}>
           <div className={styles.logoWrapper}>
             <img 
-              src="/dubai-future-fintech-week-logo.svg" 
+              src={assetPath('/dubai-future-fintech-week-logo.svg')} 
               alt="Dubai Future Finance Week" 
               className={styles.heroLogo} 
             />
@@ -52,7 +53,7 @@ export default function DFFWPage() {
             <div className={styles.featureCard}>
               <div className={styles.cardGlow} />
               <div className={styles.cardImageWrapper}>
-                <img src="/connected-world.webp" alt="Global Ecosystem" className={styles.cardImage} />
+                <img src={assetPath('/connected-world.webp')} alt="Global Ecosystem" className={styles.cardImage} />
                 <div className={styles.imageOverlay} />
               </div>
               <div className={styles.cardContent}>
@@ -67,7 +68,7 @@ export default function DFFWPage() {
             <div className={styles.featureCard}>
               <div className={styles.cardGlow} />
               <div className={styles.cardImageWrapper}>
-                <img src="/fintechs.webp" alt="Innovation Labs" className={styles.cardImage} />
+                <img src={assetPath('/fintechs.webp')} alt="Innovation Labs" className={styles.cardImage} />
                 <div className={styles.imageOverlay} />
               </div>
               <div className={styles.cardContent}>
@@ -82,7 +83,7 @@ export default function DFFWPage() {
             <div className={styles.featureCard}>
               <div className={styles.cardGlow} />
               <div className={styles.cardImageWrapper}>
-                <img src="/bank-executives.webp" alt="Executive Networking" className={styles.cardImage} />
+                <img src={assetPath('/bank-executives.webp')} alt="Executive Networking" className={styles.cardImage} />
                 <div className={styles.imageOverlay} />
               </div>
               <div className={styles.cardContent}>

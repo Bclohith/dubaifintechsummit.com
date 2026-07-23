@@ -1,4 +1,6 @@
 'use client';
+import { assetPath } from '../utils/assetPath';
+
 
 import { useEffect, useState } from 'react';
 import styles from './Footer.module.css';
@@ -33,7 +35,7 @@ export default function Footer() {
         <div className={styles.brandRow}>
           <div className={styles.brandCol}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/dfs-logo-hero-banner.svg" alt="Dubai Fintech Summit" className={styles.brandLogo} />
+            <img src={assetPath('/dfs-logo-hero-banner.svg')} alt="Dubai Fintech Summit" className={styles.brandLogo} />
           </div>
           <div className={styles.dividerSlash} />
           <div className={styles.brandCol}>
@@ -41,20 +43,20 @@ export default function Footer() {
             {/* White pill badge so the DIFC logo is visible on the dark footer */}
             <div className={styles.difcPill}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/difc-logo.svg" alt="DIFC" className={styles.brandLogoDifc} />
+              <img src={assetPath('/difc-logo.svg')} alt="DIFC" className={styles.brandLogoDifc} />
             </div>
           </div>
           <div className={styles.dividerSlash} />
           <div className={styles.brandCol}>
             <span className={styles.logoLabel}>Part of</span>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/dubai-future-fintech-week-logo.svg" alt="Dubai Future Finance Week" className={styles.brandLogoFuture} />
+            <img src={assetPath('/dubai-future-fintech-week-logo.svg')} alt="Dubai Future Finance Week" className={styles.brandLogoFuture} />
           </div>
           <div className={styles.dividerSlash} />
           <div className={styles.brandCol}>
             <span className={styles.logoLabel}>Managed by</span>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/trescon-logo.png" alt="Trescon" className={styles.brandLogoTrescon} />
+            <img src={assetPath('/trescon-logo.png')} alt="Trescon" className={styles.brandLogoTrescon} />
           </div>
         </div>
 

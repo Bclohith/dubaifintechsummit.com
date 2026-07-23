@@ -1,4 +1,6 @@
 'use client';
+import { assetPath } from '../utils/assetPath';
+
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
@@ -44,7 +46,7 @@ export default function Navbar() {
       <div className={styles.headerInner}>
         {/* Logo */}
         <Link href="/" className={styles.logo}>
-          <img src="/dfs-logo-hero-banner.svg" alt="Dubai FinTech Summit Logo" className={styles.logoImg} />
+          <img src={assetPath('/dfs-logo-hero-banner.svg')} alt="Dubai FinTech Summit Logo" className={styles.logoImg} />
         </Link>
 
         {/* Desktop Navigation */}

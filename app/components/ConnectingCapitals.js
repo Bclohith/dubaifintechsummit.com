@@ -1,4 +1,6 @@
 'use client';
+import { assetPath } from '../utils/assetPath';
+
 
 import { useEffect, useState, useRef } from 'react';
 import styles from './ConnectingCapitals.module.css';
@@ -62,7 +64,7 @@ export default function ConnectingCapitals() {
               
               <div className={styles.mapImageWrapper}>
                 <img 
-                  src="/world_map_with_cities.jpg" 
+                  src={assetPath('/world_map_with_cities.jpg')} 
                   alt="Global Convergence Map" 
                   className={styles.mapImage}
                 />

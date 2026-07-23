@@ -1,4 +1,6 @@
 "use client";
+import { assetPath } from '../utils/assetPath';
+
 
 import { useEffect, useState } from 'react';
 import styles from './HeroBanner.module.css';
@@ -37,9 +39,9 @@ export default function HeroBanner() {
           </div>
 
           <div className={styles.secondaryLogosContainer}>
-            <img src="/part-of-dffw.png" alt="Part of Dubai Future Finance Week" className={styles.secondaryLogo} />
+            <img src={assetPath('/part-of-dffw.png')} alt="Part of Dubai Future Finance Week" className={styles.secondaryLogo} />
             <div className={styles.logoDivider}></div>
-            <img src="/organised-by-difc.png" alt="Organised by DIFC" className={styles.secondaryLogo} />
+            <img src={assetPath('/organised-by-difc.png')} alt="Organised by DIFC" className={styles.secondaryLogo} />
           </div>
         </div>
 
