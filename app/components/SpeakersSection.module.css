@@ -26,14 +26,6 @@
   align-items: flex-end;
   margin-bottom: 4rem;
   width: 100%;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.headerBlock.reveal {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .titleInfo {
@@ -42,30 +34,29 @@
 }
 
 .preTitle {
-  font-family: var(--font-secondary);
+  font-family: var(--font-secondary, sans-serif);
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--color-primary);
+  color: #00e5e5;
   letter-spacing: 0.35em;
   text-transform: uppercase;
   margin-bottom: 0.75rem;
 }
 
 .title {
-  font-family: var(--font-primary);
+  font-family: var(--font-primary, sans-serif);
   font-size: clamp(2.5rem, 4vw, 3.8rem);
   font-weight: 800;
   line-height: 1.1;
-  letter-spacing: -0.02em;
-    color: var(--color-text-white);
+  color: #ffffff;
   margin-bottom: 1.5rem;
 }
 
 .titleLine {
   width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, var(--color-primary), transparent);
-  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, #00e5e5, transparent);
+  border-radius: 4px;
 }
 
 .viewAllBtn {
@@ -73,14 +64,15 @@
   align-items: center;
   gap: 0.75rem;
   padding: 1rem 2rem;
-  font-family: var(--font-secondary);
+  font-family: var(--font-secondary, sans-serif);
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--color-bg-dark);
-  background: var(--color-text-white);
+  color: #02050a;
+  background: #ffffff;
   border: none;
-  border-radius: var(--radius-full);
+  border-radius: 30px;
   cursor: pointer;
+  text-decoration: none;
   box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -88,7 +80,7 @@
 .viewAllBtn:hover {
   transform: translateY(-2px);
   box-shadow: 0 15px 35px rgba(0, 229, 229, 0.4);
-  background: var(--color-primary);
+  background: #00e5e5;
 }
 
 .viewAllBtn svg {
@@ -102,15 +94,6 @@
 /* Accordion Wrapper */
 .accordionWrapper {
   width: 100%;
-  padding: 0 2.5rem;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
-}
-
-.accordionWrapper.reveal {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .accordionContainer {
@@ -118,7 +101,7 @@
   width: 100%;
   height: 600px;
   gap: 1rem;
-  border-radius: var(--radius-xl);
+  border-radius: 20px;
   overflow: hidden;
 }
 
@@ -128,7 +111,7 @@
   flex: 1;
   height: 100%;
   min-width: 80px;
-  border-radius: var(--radius-lg);
+  border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
   transition: flex 0.8s cubic-bezier(0.16, 1, 0.3, 1);
@@ -151,16 +134,16 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  padding: 1.5rem; /* Decreases the image size */
+  padding: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: flex-end;
 }
 
 .speakerImage {
-  width: 100%;
-  height: 90%;
-  object-fit: contain; /* ensures the whole speaker is visible without getting cut off too big */
+  width: 90%;
+  height: 80%;
+  object-fit: contain;
   object-position: bottom center;
   transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   filter: grayscale(80%) sepia(20%) hue-rotate(180deg);
@@ -168,15 +151,16 @@
 }
 
 .accordionItem.active .speakerImage {
-  filter: grayscale(10%) sepia(0%);
+  filter: grayscale(0%) sepia(0%);
   opacity: 1;
-  transform: scale(1.05); /* slightly zoom in when hovered, but base size is smaller */
+  transform: scale(1.05);
 }
 
 .gradientScrim {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, transparent 40%, rgba(6, 15, 29, 0.95) 100%);
+  pointer-events: none;
 }
 
 .tagLabel {
@@ -187,16 +171,17 @@
   backdrop-filter: blur(10px);
   border: 1px solid rgba(0, 229, 229, 0.4);
   padding: 0.4rem 1rem;
-  border-radius: var(--radius-full);
-  font-family: var(--font-secondary);
+  border-radius: 30px;
+  font-family: var(--font-secondary, sans-serif);
   font-size: 0.7rem;
   font-weight: 800;
-  color: var(--color-primary);
+  color: #00e5e5;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   opacity: 0;
   transform: translateY(-10px);
   transition: all 0.6s ease;
+  z-index: 2;
 }
 
 .accordionItem.active .tagLabel {
@@ -213,13 +198,14 @@
   transform: translateX(-50%) rotate(-90deg);
   transform-origin: left bottom;
   white-space: nowrap;
-  font-family: var(--font-primary);
+  font-family: var(--font-primary, sans-serif);
   font-size: 1.25rem;
   font-weight: 800;
   color: rgba(255, 255, 255, 0.5);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   transition: opacity 0.4s ease;
+  z-index: 2;
 }
 
 .accordionItem.active .verticalTitle {
@@ -239,6 +225,8 @@
   transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .accordionItem.active .expandedDetails {
@@ -248,10 +236,10 @@
 }
 
 .speakerName {
-  font-family: var(--font-primary);
+  font-family: var(--font-primary, sans-serif);
   font-size: clamp(2rem, 3vw, 3rem);
   font-weight: 900;
-  color: var(--color-text-white);
+  color: #ffffff;
   line-height: 1.1;
   margin-bottom: 0.5rem;
   letter-spacing: -0.02em;
@@ -260,24 +248,24 @@
 .dividerLine {
   width: 40px;
   height: 3px;
-  background: var(--color-primary);
+  background: #00e5e5;
   margin: 1rem 0;
 }
 
 .speakerTitle {
-  font-family: var(--font-secondary);
+  font-family: var(--font-secondary, sans-serif);
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--color-text-light);
+  color: #00e5e5;
   line-height: 1.4;
   margin-bottom: 0.25rem;
 }
 
 .speakerCompany {
-  font-family: var(--font-secondary);
+  font-family: var(--font-secondary, sans-serif);
   font-size: 0.95rem;
   font-weight: 800;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.6);
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
