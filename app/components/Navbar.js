@@ -68,7 +68,7 @@ export default function Navbar() {
                 onMouseEnter={() => link.dropdown && setDropdownOpen(true)}
                 onMouseLeave={() => link.dropdown && setDropdownOpen(false)}
               >
-                <a
+                <Link
                   href={link.href}
                   className={`${styles.navLink} ${activeLink === link.href ? styles.navLinkActive : ''}`}
                   onClick={(e) => {
@@ -83,21 +83,21 @@ export default function Navbar() {
                     </svg>
                   )}
                   <span className={styles.navLinkUnderline}></span>
-                </a>
+                </Link>
                 
                 {/* Dropdown Menu */}
                 {link.dropdown && (
                   <div className={`${styles.dropdownMenu} ${dropdownOpen ? styles.dropdownOpen : ''}`}>
                     <div className={styles.dropdownInner}>
                       {link.dropdown.map((subItem) => (
-                        <a 
+                        <Link 
                           key={subItem.href} 
                           href={subItem.href}
                           className={styles.dropdownItem}
                           onClick={() => handleNavClick(subItem.href)}
                         >
                           {subItem.label}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </div>
@@ -136,13 +136,13 @@ export default function Navbar() {
           <ul className={styles.mobileNavList}>
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a
+                <Link
                   href={link.href}
                   className={`${styles.mobileNavLink} ${activeLink === link.href ? styles.mobileNavLinkActive : ''}`}
                   onClick={() => handleNavClick(link.href)}
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
