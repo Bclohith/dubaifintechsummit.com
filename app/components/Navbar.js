@@ -44,7 +44,7 @@ export default function Navbar() {
       <div className={styles.headerInner}>
         {/* Logo */}
         <Link href="/" className={styles.logo}>
-          <img src="/dfs-logo-hero-banner.svg" alt="Dubai FinTech Summit Logo" className={styles.logoImg} />
+          <img src="/dubaifintechsummit.com/dfs-logo-hero-banner.svg" alt="Dubai FinTech Summit Logo" className={styles.logoImg} />
         </Link>
 
         {/* Desktop Navigation */}
