@@ -14,22 +14,33 @@ export default function SpeakersPage() {
     // Simulated KonfHub API fetch for Speakers
     const fetchSpeakers = async () => {
       setLoading(true);
-      // await fetch(`https://api.konfhub.com/speakers?event=dubai-future-finance-week-2026`)
-      
-      setTimeout(() => {
-        const mockSpeakers = [
-          { id: 1, name: 'H.E. Essa Kazim', title: 'Governor', company: 'DIFC', photo: '/essa-kazim.png', tag: 'VIP' },
-          { id: 2, name: 'Arif Amiri', title: 'CEO', company: 'DIFC Authority', photo: '/arif-amiri.png', tag: 'Host' },
-          { id: 3, name: 'Ryan Breslow', title: 'Founder', company: 'Bolt', photo: '/ryan-breslow.png', tag: 'Keynote' },
-          { id: 4, name: 'Tan Su Shan', title: 'Group Head', company: 'DBS Bank', photo: '/tan-su-shan.png', tag: 'Banking' },
-          { id: 5, name: 'Ashishkumar Chauhan', title: 'MD & CEO', company: 'National Stock Exchange of India', photo: '/ashishkumar-chauhan.png', tag: 'Markets' },
-          { id: 6, name: 'Kentaro Okuda', title: 'President & CEO', company: 'Nomura Holdings', photo: '/kentaro-okuda.png', tag: 'Finance' },
-          { id: 7, name: 'Jane Doe', title: 'Chief Innovation Officer', company: 'Global Bank', photo: '/essa-kazim.png', tag: 'Innovator' },
-          { id: 8, name: 'John Smith', title: 'Managing Director', company: 'Venture Capital', photo: '/arif-amiri.png', tag: 'Investor' },
-        ];
-        setSpeakers(mockSpeakers);
+      try {
+        const res = await fetch(`https://api.konfhub.com/event/public/dubai-future-finance-week-2026/speakers`);
+        const data = await res.json();
+        
+        let allSpeakers = [];
+        if (data && data.categorized) {
+          data.categorized.forEach(category => {
+            if (category.speakers) {
+              category.speakers.forEach(speaker => {
+                allSpeakers.push({
+                  id: speaker.speaker_id,
+                  name: speaker.name,
+                  title: speaker.designation || '',
+                  company: speaker.organisation || '',
+                  photo: speaker.image_url || '/essa-kazim.png',
+                  tag: category.category_name.replace('||', '').trim() || 'Speaker'
+                });
+              });
+            }
+          });
+        }
+        setSpeakers(allSpeakers);
+      } catch (err) {
+        console.error('Failed to fetch speakers:', err);
+      } finally {
         setLoading(false);
-      }, 1000);
+      }
     };
 
     fetchSpeakers();
