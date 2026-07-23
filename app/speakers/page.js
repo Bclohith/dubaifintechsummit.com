@@ -8,6 +8,7 @@ import styles from './SpeakersPage.module.css';
 export default function SpeakersPage() {
   const [speakers, setSpeakers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedSpeaker, setSelectedSpeaker] = useState(null);
 
   useEffect(() => {
     // Simulated fetch for Dubai FinTech Summit Speakers
@@ -18,70 +19,76 @@ export default function SpeakersPage() {
           name: "H.E. Essa Kazim",
           title: "Governor",
           company: "DIFC",
+          country: "UAE",
           photo: "/essa-kazim.png",
-          tag: "Keynote"
+          bio: "Leading the future of finance in Dubai.",
         },
         {
           id: 2,
           name: "Arif Amiri",
           title: "CEO",
           company: "DIFC Authority",
+          country: "UAE",
           photo: "/arif-amiri.png",
-          tag: "Speaker"
+          bio: "Driving innovation in the financial sector.",
         },
         {
           id: 3,
           name: "Brad Garlinghouse",
           title: "CEO",
           company: "Ripple",
+          country: "USA",
           photo: "/placeholder.png",
-          tag: "Speaker"
+          bio: "Pioneering crypto solutions for global payments.",
         },
         {
           id: 4,
           name: "Jenny Johnson",
           title: "President & CEO",
           company: "Franklin Templeton",
+          country: "USA",
           photo: "/placeholder.png",
-          tag: "Speaker"
+          bio: "Global asset management and digital assets strategy.",
         },
         {
           id: 5,
           name: "Nikolay Storonsky",
           title: "CEO",
           company: "Revolut",
+          country: "UK",
           photo: "/placeholder.png",
-          tag: "Keynote"
+          bio: "Revolutionizing digital banking.",
         },
         {
           id: 6,
           name: "Dr. Bernd van Linder",
           title: "CEO",
           company: "Commercial Bank of Dubai",
+          country: "UAE",
           photo: "/placeholder.png",
-          tag: "Speaker"
-        },
-        {
-          id: 7,
-          name: "Yassir Karmal",
-          title: "Managing Director",
-          company: "Bain & Company",
-          photo: "/placeholder.png",
-          tag: "Moderator"
-        },
-        {
-          id: 8,
-          name: "Ahmed Abdelaal",
-          title: "Group CEO",
-          company: "Mashreq",
-          photo: "/placeholder.png",
-          tag: "Speaker"
+          bio: "Innovating the banking landscape in the UAE.",
         }
       ];
       setSpeakers(mockSpeakers);
       setLoading(false);
     }, 800);
+
+    const handleEsc = (e) => {
+      if (e.key === 'Escape') setSelectedSpeaker(null);
+    };
+    window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
   }, []);
+
+  // Prevent scrolling when modal is open
+  useEffect(() => {
+    if (selectedSpeaker) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => { document.body.style.overflow = 'unset'; }
+  }, [selectedSpeaker]);
 
   return (
     <>
@@ -100,39 +107,75 @@ export default function SpeakersPage() {
 
         {/* Speakers Grid Container */}
         <div className={styles.container}>
-          {loading ? (
-            <div className={styles.loader}>
-              <div className={styles.spinner}></div>
-              <p>Loading Speakers...</p>
-            </div>
-          ) : (
-            <div className={styles.grid}>
-              {speakers.map((speaker) => (
-                <div key={speaker.id} className={styles.card}>
-                  <div className={styles.imageWrapper}>
-                    <div className={styles.imageOverlay}></div>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img 
-                      src={speaker.photo} 
-                      alt={speaker.name} 
-                      className={styles.speakerImage}
-                      onError={(e) => {
-                        e.target.src = "https://ui-avatars.com/api/?name=" + encodeURIComponent(speaker.name) + "&background=1a1a2e&color=fff&size=500";
-                      }}
-                    />
-                    <div className={styles.speakerTag}>{speaker.tag}</div>
+          <div className={styles.konfhubSpeakersWrap}>
+            {loading ? (
+              <div className={styles.loader}>
+                <div className={styles.spinner}></div>
+                <p>Loading Speakers...</p>
+              </div>
+            ) : (
+              <div className={styles.konfhubSpeakersGrid}>
+                {speakers.map((speaker) => (
+                  <div key={speaker.id} className={styles.speakerCardWrapper}>
+                    <div 
+                      className={styles.speakerCard} 
+                      onClick={() => setSelectedSpeaker(speaker)}
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img 
+                        src={speaker.photo} 
+                        alt={speaker.name} 
+                        className={styles.speakerImage}
+                        onError={(e) => {
+                          e.target.src = "https://ui-avatars.com/api/?name=" + encodeURIComponent(speaker.name) + "&background=f0f0f0&color=181818&size=500";
+                        }}
+                      />
+                      <div className={styles.speakerInfo}>
+                        <h3 className={styles.speakerName}>{speaker.name}</h3>
+                        <div className={styles.speakerTitle}>{speaker.title}</div>
+                        <div className={styles.speakerOrg}>{speaker.company}</div>
+                        <div className={styles.speakerCountry}>{speaker.country}</div>
+                      </div>
+                    </div>
                   </div>
-                  <div className={styles.speakerInfo}>
-                    <h3 className={styles.speakerName}>{speaker.name}</h3>
-                    <p className={styles.speakerTitle}>{speaker.title}</p>
-                    <p className={styles.speakerCompany}>{speaker.company}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
+
+      {/* Speaker Modal Popup */}
+      {selectedSpeaker && (
+        <div className={styles.modalOverlay} onClick={() => setSelectedSpeaker(null)}>
+          <div className={styles.speakerModalInner} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.closeModal} onClick={() => setSelectedSpeaker(null)}>
+              &times;
+            </button>
+            <div className={styles.modalBody}>
+              <div className={styles.modalPhoto}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img 
+                  src={selectedSpeaker.photo} 
+                  alt={selectedSpeaker.name} 
+                  onError={(e) => {
+                    e.target.src = "https://ui-avatars.com/api/?name=" + encodeURIComponent(selectedSpeaker.name) + "&background=f0f0f0&color=181818&size=500";
+                  }}
+                />
+              </div>
+              <div className={styles.modalContent}>
+                <h2>{selectedSpeaker.name}</h2>
+                <div className={styles.speakerTitle}>{selectedSpeaker.title}</div>
+                <div className={styles.speakerOrg}>{selectedSpeaker.company}</div>
+                
+                <div className={styles.speakerBio}>
+                  <p>{selectedSpeaker.bio}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       <Footer />
     </>

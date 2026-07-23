@@ -4,7 +4,7 @@
   padding-bottom: 8rem;
 }
 
-/* Hero */
+/* Hero (Keeping the existing premium hero) */
 .heroBanner {
   position: relative;
   width: 100%;
@@ -65,134 +65,273 @@
   margin-bottom: 2.5rem;
 }
 
-.divider {
-  width: 60px;
-  height: 4px;
-  background: var(--color-primary);
-  margin: 0 auto;
-  border-radius: 2px;
-}
-
-/* Grid */
+/* Grid Wrapper */
 .container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 6rem 2.5rem 0;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2.5rem;
+.konfhubSpeakersWrap {
+  margin-top: -45px !important;
 }
 
-/* Card */
+/* Exact CSS applied from User */
+.konfhubSpeakersGrid {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 24px !important;
+  margin: 30px 0 !important;
+}
+
+.speakerCardWrapper {
+  flex: 1 1 calc(25% - 24px);
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
 .speakerCard {
-  background: rgba(13, 31, 60, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  display: flex;
-  flex-direction: column;
-}
-
-.speakerCard:hover {
-  transform: translateY(-8px);
-  border-color: rgba(0, 229, 229, 0.4);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(0, 229, 229, 0.05);
-}
-
-.imageWrapper {
-  position: relative;
-  width: 100%;
-  height: 320px;
-  background: #060f1d;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  text-align: left !important;
+  border-radius: 2px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  height: 100% !important;
+  cursor: pointer !important;
+  background: #fff !important;
+  padding: 0px !important;
+  box-shadow: none !important;
   overflow: hidden;
 }
 
 .speakerImage {
-  width: 90%;
-  height: 95%;
-  object-fit: contain;
-  object-position: bottom center;
-  filter: grayscale(80%) sepia(20%) hue-rotate(180deg);
-  opacity: 0.8;
-  transition: all 0.8s ease;
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 0px !important;
 }
 
-.speakerCard:hover .speakerImage {
-  filter: grayscale(0%) sepia(0%);
-  opacity: 1;
-  transform: scale(1.05);
-}
-
-.gradientScrim {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 50%, rgba(13, 31, 60, 0.9) 100%);
-}
-
-.tagLabel {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(0, 229, 229, 0.4);
-  padding: 0.3rem 0.8rem;
-  border-radius: var(--radius-full);
-  font-family: var(--font-secondary);
-  font-size: 0.7rem;
-  font-weight: 800;
-  color: var(--color-primary);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.details {
-  padding: 2rem;
-  background: rgba(13, 31, 60, 0.5);
-  flex-grow: 1;
+.speakerInfo {
+  padding: 0 12px 16px 12px;
   display: flex;
   flex-direction: column;
+  gap: 4px;
 }
 
 .speakerName {
-  font-family: var(--font-primary);
-  font-size: 1.6rem;
-  font-weight: 800;
-  color: var(--color-text-white);
-  line-height: 1.2;
-  margin-bottom: 0.75rem;
-}
-
-.tinyDivider {
-  width: 30px;
-  height: 2px;
-  background: var(--color-primary);
-  margin-bottom: 1rem;
+  color: #181818 !important;
+  font-family: Lufga, sans-serif !important;
+  font-size: 22px !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  line-height: 120% !important;
+  text-transform: uppercase !important;
+  margin: 0 !important;
 }
 
 .speakerTitle {
-  font-family: var(--font-secondary);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-text-light);
-  line-height: 1.4;
-  margin-bottom: 0.25rem;
+  color: #181818 !important;
+  font-family: Lufga, sans-serif !important;
+  font-size: 16px !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  line-height: 25.625px !important;
+  letter-spacing: 0.5px !important;
+  margin: 0 !important;
 }
 
-.speakerCompany {
-  font-family: var(--font-secondary);
-  font-size: 0.85rem;
-  font-weight: 800;
-  color: var(--color-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+.speakerOrg {
+  color: #000 !important;
+  font-family: Lufga, sans-serif !important;
+  font-size: 16px !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  line-height: 25.625px !important;
+  letter-spacing: 0.5px !important;
+  margin: 0 !important;
+}
+
+.speakerCountry {
+  color: #181818 !important;
+  font-family: Lufga, sans-serif !important;
+  font-size: 16px !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  line-height: 25.625px !important;
+  letter-spacing: 0.5px !important;
+  margin: 0 !important;
+}
+
+
+/* Modal Styling */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.speakerModalInner {
+  max-width: 900px !important;
+  width: 100% !important;
+  border-radius: 0px !important;
+  overflow: hidden !important;
+  position: relative !important;
+  padding: 24px !important;
+  box-sizing: border-box !important;
+  background: linear-gradient(180deg, #CCF3FF 0%, #F3FCFF 49.04%, #CCF3FF 100%) !important;
+}
+
+.speakerModalInner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 180px; 
+  height: 120px;
+  background: url("https://dubaifintechsummit.com/wp-content/uploads/2026/03/Speakers_popup-bg-shape.svg") no-repeat;
+  background-size: contain;
+  pointer-events: none;
+}
+
+.closeModal {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 50px !important;
+  cursor: pointer;
+  color: #082028 !important;
+  line-height: 0.5;
+  z-index: 10;
+  background: none;
+  border: none;
+}
+
+.modalBody {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.modalPhoto img {
+  border-radius: 0px !important;
+  width: 250px;
+  height: auto;
+  object-fit: cover;
+}
+
+.modalContent {
+  flex: 1;
+}
+
+.modalContent h2 {
+  color: #082028 !important;
+  font-family: Lufga, sans-serif !important;
+  font-size: 36px !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  line-height: 100% !important;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.modalContent .speakerOrg {
+  margin-top: -10px;
+  margin-bottom: -2px !important;
+}
+
+.speakerBio p {
+  color: #082028 !important;
+  font-family: Lufga, sans-serif !important;
+  font-size: 16px !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  line-height: 150% !important;
+  border-top: solid 1.5px #0f384847;
+  padding-top: 15px !important;
+  margin-top: 20px;
+}
+
+
+/* Media Queries */
+@media screen and (max-width:1280px) {
+  .konfhubSpeakersGrid {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 24px !important;
+      margin: 20px 0 !important;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .konfhubSpeakersGrid {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 24px !important;
+      margin: 20px 0 !important;
+  }
+}
+
+@media screen and (max-width:999px) {
+  .modalContent h2 {
+      font-size: 30px !important;
+  }
+}
+
+@media screen and (max-width:767px) {
+  .konfhubSpeakersGrid {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 24px !important;
+      margin: 20px 0 !important;
+  }
+  .modalBody {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      flex-direction: column;
+  }
+  .modalPhoto img {
+      border-radius: 0px !important;
+      margin: 0px !important;
+  }
+  .modalContent h2 {
+      font-size: 26px !important;
+  }
+  .speakerModalInner {
+      height: 70vh !important;
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+      scroll-behavior: smooth;
+  }
+  .closeModal {
+      position: absolute;
+      top: 10px !important;
+      right: 10px !important;
+  }
+  .speakerModalInner::-webkit-scrollbar {
+      width: 6px;
+  }
+  .speakerModalInner::-webkit-scrollbar-thumb {
+      background: #082028;
+      border-radius: 0px;
+  }
+}
+
+@media screen and (max-width:450px) {
+  .konfhubSpeakersGrid {
+      display: grid !important;
+      grid-template-columns: repeat(1, 1fr) !important;
+      gap: 24px !important;
+      margin: 20px 0 !important;
+  }
 }
 
 /* Loader */
@@ -206,7 +345,6 @@
 }
 
 .loader p {
-  font-family: var(--font-secondary);
   color: rgba(255, 255, 255, 0.5);
 }
 
@@ -221,14 +359,4 @@
 
 @keyframes spin {
   to { transform: rotate(360deg); }
-}
-
-@media (max-width: 768px) {
-  .heroBanner {
-    padding: 10rem 1.5rem 4rem;
-  }
-  .grid {
-    grid-template-columns: repeat(1, 1fr);
-    gap: 2rem;
-  }
 }
