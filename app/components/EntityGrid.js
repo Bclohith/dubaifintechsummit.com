@@ -14,16 +14,22 @@ export default function EntityGrid({ title, type, subtitle }) {
       setLoading(true);
       setError(false);
       try {
-        const apiKey = process.env.NEXT_PUBLIC_KONFHUB_API_KEY;
-        const res = await fetch(`https://api.konfhub.com/event/dubai-future-finance-week-2026/entities?type=${type}`, {
-          headers: apiKey ? { 'x-api-key': apiKey } : {}
-        });
+        // Map KonfHub type IDs to our extracted JSON filenames
+        const typeMap = {
+          '1': 'exhibitors',
+          '2': 'associations',
+          '3': 'sponsors'
+        };
+        const dataFile = typeMap[type] || 'sponsors';
         
-        const data = await res.json();
+        // Fetch the extracted live data from our local public directory
+        const res = await fetch(`/data/${dataFile}.json`);
         
-        if (data && data.message === 'Missing Authentication Token') {
-          throw new Error('Missing API Key');
+        if (!res.ok) {
+          throw new Error('Failed to load entity data');
         }
+
+        const data = await res.json();
 
         if (data && Array.isArray(data)) {
           const formattedEntities = data.map(e => ({
@@ -72,7 +78,7 @@ export default function EntityGrid({ title, type, subtitle }) {
       <div className={styles.container}>
         {error && (
           <div style={{ padding: '15px', background: 'rgba(255, 50, 50, 0.1)', color: '#ff6b6b', borderRadius: '8px', marginBottom: '30px', textAlign: 'center', border: '1px solid rgba(255,50,50,0.3)' }}>
-            <strong>Displaying Mock Data:</strong> Please configure <code>NEXT_PUBLIC_KONFHUB_API_KEY</code> in Vercel to fetch live {title} from KonfHub.
+            <strong>Displaying Mock Data:</strong> Could not load {title} data.
           </div>
         )}
         

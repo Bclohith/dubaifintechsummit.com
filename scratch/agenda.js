@@ -1,0 +1,1 @@
+<html><head><link rel="icon" href="data:;"><meta http-equiv="refresh" content="0;/.well-known/sgcaptcha/?r=%2Fwp-content%2Fplugins%2Fkonfhub-agenda-1-4-4-partner-1%2Fassets%2Fagenda.js&y=ipr:182.74.239.34:1784786514.932"></meta></head></html>
