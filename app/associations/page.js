@@ -1,6 +1,6 @@
-import EntityGrid from '../../components/EntityGrid';
-import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
+import EntityGrid from '../components/EntityGrid';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 export const metadata = {
   title: 'Associations - Dubai FinTech Summit',
