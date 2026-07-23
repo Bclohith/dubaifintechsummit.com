@@ -123,11 +123,11 @@
 
 .title {
   font-family: var(--font-primary);
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
   font-weight: 800;
-  line-height: 1.15;
-  color: var(--color-text-white);
+  line-height: 1.1;
   letter-spacing: -0.02em;
+    color: var(--color-text-white);
   margin-bottom: 2rem;
 }
 
@@ -140,9 +140,10 @@
 .description {
   font-family: var(--font-secondary);
   font-size: 1.15rem;
-  line-height: 1.8;
-  color: var(--color-text-light);
-  margin-bottom: 2.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  max-width: 650px;
 }
 
 .quoteBlock {

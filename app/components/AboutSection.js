@@ -35,7 +35,7 @@ export default function AboutSection() {
             
             <div className={styles.description}>
               <p style={{ marginBottom: '1rem' }}>
-                Organised by DIFC, Dubai FinTech Summit – now in its fourth edition – convenes C-suite leaders, decision-makers, regulators, innovators, and market pioneers from finance, policy, and technology to shape the standards, strategies, and innovations defining the next chapter of global finance.
+                Organised by DIFC, Dubai FinTech Summit – now in its 3rd edition – convenes C-suite leaders, decision-makers, regulators, innovators, and market pioneers from finance, policy, and technology to shape the standards, strategies, and innovations defining the next chapter of global finance.
               </p>
               <p>
                 Experience groundbreaking insights, bold ideas, and transformative collaborations driving the evolution of the FinTech industry.

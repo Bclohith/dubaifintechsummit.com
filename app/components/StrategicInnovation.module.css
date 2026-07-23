@@ -66,11 +66,11 @@
 
 .title {
   font-family: var(--font-primary);
-  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
   font-weight: 800;
-  color: #ffffff;
-  line-height: 1.15;
+  line-height: 1.1;
   letter-spacing: -0.02em;
+    color: var(--color-text-white);
 }
 
 .cyanGradient {

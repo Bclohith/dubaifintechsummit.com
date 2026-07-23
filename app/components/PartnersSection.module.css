@@ -61,11 +61,11 @@
 
 .title {
   font-family: var(--font-primary);
-  font-size: clamp(2.2rem, 3.8vw, 2.8rem);
-  font-weight: 850;
-  color: #082028; /* Dark color for readability on white */
-  letter-spacing: -0.015em;
-  text-transform: lowercase;
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+    color: #0b1d35;
   margin-bottom: 1.25rem;
 }
 

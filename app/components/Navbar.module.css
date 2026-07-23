@@ -159,6 +159,7 @@
 
 .btnOutline:hover {
   color: var(--color-primary);
+  transform: translateY(-2px);
 }
 
 .btnPrimary {
@@ -170,11 +171,14 @@
   padding: 0.7rem 1.5rem;
   border-radius: var(--radius-full);
   text-decoration: none;
-  transition: background 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(0, 229, 229, 0.1);
 }
 
 .btnPrimary:hover {
   background: #33ffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 229, 229, 0.3);
 }
 
 /* Mobile Toggle */

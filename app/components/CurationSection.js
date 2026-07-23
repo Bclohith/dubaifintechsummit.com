@@ -99,7 +99,7 @@ export default function CurationSection() {
                   {/* Inner Content */}
                   <div className={styles.ringContent}>
                     <span className={styles.number}>
-                      {isVisible ? stat.count : 0}<span className={styles.plus}>+</span>
+                      {stat.count}<span className={styles.plus}>+</span>
                     </span>
                   </div>
                 </div>
