@@ -1,0 +1,278 @@
+.wrapper {
+  min-height: 100vh;
+  background-color: var(--color-bg-dark);
+  padding-bottom: 8rem;
+}
+
+/* Hero */
+.heroBanner {
+  position: relative;
+  width: 100%;
+  padding: 12rem 2.5rem 6rem;
+  background: #030811;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ambientGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(0, 229, 229, 0.15) 0%, transparent 70%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.preTitle {
+  display: block;
+  font-family: var(--font-secondary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.heroTitle {
+  font-family: var(--font-primary);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 900;
+  color: var(--color-text-white);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.heroSubtitle {
+  font-family: var(--font-secondary);
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 3rem;
+}
+
+/* Tabs */
+.tabContainer {
+  display: inline-flex;
+  background: rgba(13, 31, 60, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+  padding: 0.5rem;
+  gap: 0.5rem;
+}
+
+.tabBtn {
+  background: transparent;
+  border: none;
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 0.75rem 2.5rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tabBtn:hover {
+  color: var(--color-text-white);
+}
+
+.tabBtn.active {
+  background: var(--color-primary);
+  color: #060f1d;
+  box-shadow: 0 4px 15px rgba(0, 229, 229, 0.2);
+}
+
+/* Timeline Container */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 6rem 2.5rem 0;
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* The vertical line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 2px;
+  background: rgba(0, 229, 229, 0.15);
+}
+
+.sessionCard {
+  position: relative;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+  background: rgba(13, 31, 60, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  transition: all 0.4s ease;
+  margin-left: 50px; /* Space for the timeline line */
+}
+
+.sessionCard:hover {
+  background: rgba(13, 31, 60, 0.6);
+  border-color: rgba(0, 229, 229, 0.3);
+  transform: translateX(10px);
+}
+
+.timelineNode {
+  position: absolute;
+  left: -35px; /* Centers it over the line (50px - 20px line offset) */
+  top: 40px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 0 10px rgba(0, 229, 229, 0.5), 0 0 0 6px rgba(0, 229, 229, 0.1);
+}
+
+.sessionTimeWrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  color: var(--color-primary);
+  font-family: var(--font-secondary);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.sessionContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sessionTitle {
+  font-family: var(--font-primary);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--color-text-white);
+  line-height: 1.2;
+}
+
+.sessionMeta {
+  display: flex;
+  gap: 1.5rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--font-secondary);
+  font-size: 0.95rem;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Speaker Block */
+.speakerWrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.speakerAvatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(0, 229, 229, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-primary);
+}
+
+.speakerDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.sName {
+  font-family: var(--font-primary);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text-white);
+}
+
+.sTitle {
+  font-family: var(--font-secondary);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.emptyState {
+  padding: 3rem;
+  text-align: center;
+  font-family: var(--font-secondary);
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+}
+
+/* Loader */
+.loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 0;
+  gap: 1.5rem;
+}
+.loader p { font-family: var(--font-secondary); color: rgba(255, 255, 255, 0.5); }
+.spinner { width: 40px; height: 40px; border: 3px solid rgba(0, 229, 229, 0.1); border-top-color: var(--color-primary); border-radius: 50%; animation: spin 1s linear infinite; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 768px) {
+  .sessionCard {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-left: 30px;
+    padding: 1.5rem;
+  }
+  .timeline::before {
+    left: 10px;
+  }
+  .timelineNode {
+    left: -26px; /* 30px offset - 10px line + 6px */
+    top: 30px;
+  }
+  .sessionTitle {
+    font-size: 1.4rem;
+  }
+}

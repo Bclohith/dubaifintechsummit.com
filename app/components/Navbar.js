@@ -19,7 +19,16 @@ const navLinks = [
   { label: 'AGENDA', href: '/agenda' },
   { label: 'SPEAKERS', href: '/speakers' },
   { label: 'GET INVOLVED', href: '/#get-involved' },
-  { label: 'ECOSYSTEM', href: '/#ecosystem' },
+  { 
+    label: 'ECOSYSTEM', 
+    href: '#',
+    dropdown: [
+      { label: 'Sponsors', href: '/sponsors' },
+      { label: 'Exhibitors', href: '/exhibitors' },
+      { label: 'Media Partners', href: '/media-partners' },
+      { label: 'Associations', href: '/associations' }
+    ]
+  },
 ];
 
 export default function Navbar() {
