@@ -1,11 +1,8 @@
-import EntityGrid from '../components/EntityGrid';
+"use client";
+
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-
-export const metadata = {
-  title: 'Media Partners - Dubai FinTech Summit',
-  description: 'Our Media Partners',
-};
+import EntityGrid from '../components/EntityGrid';
 
 export default function MediaPartnersPage() {
   return (
@@ -13,8 +10,8 @@ export default function MediaPartnersPage() {
       <Navbar />
       <EntityGrid 
         title="Media Partners" 
-        subtitle="The voices amplifying our message across the globe." 
-        type="media" 
+        subtitle="Our global media partners bringing the Summit to the world." 
+        type="2" // Type 2 for association/media partners
       />
       <Footer />
     </>

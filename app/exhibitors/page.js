@@ -1,11 +1,8 @@
-import EntityGrid from '../components/EntityGrid';
+"use client";
+
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-
-export const metadata = {
-  title: 'Exhibitors - Dubai FinTech Summit',
-  description: 'Our Exhibitors',
-};
+import EntityGrid from '../components/EntityGrid';
 
 export default function ExhibitorsPage() {
   return (
@@ -13,8 +10,8 @@ export default function ExhibitorsPage() {
       <Navbar />
       <EntityGrid 
         title="Our Exhibitors" 
-        subtitle="Discover groundbreaking technologies and next-generation financial solutions in our world-class exhibition space." 
-        type="3" 
+        subtitle="Discover the cutting-edge companies showcasing their latest solutions." 
+        type="1" // Type 1 for exhibitors based on WP shortcode entity="1"
       />
       <Footer />
     </>

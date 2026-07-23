@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import styles from './AgendaPage.module.css';
-import { assetPath } from '../utils/assetPath';
+import AgendaList from '../components/AgendaList';
 
 export default function AgendaPage() {
   return (
@@ -22,17 +22,8 @@ export default function AgendaPage() {
           </div>
         </div>
 
-        {/* Agenda Iframe Embed */}
-        <div className={styles.container} style={{ padding: '0', maxWidth: '100%' }}>
-          <iframe 
-            src="https://konfhub.com/dubai-future-finance-week-2026" 
-            width="100%" 
-            height="1200px" 
-            style={{ border: 'none', borderRadius: '8px', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}
-            title="KonfHub Agenda"
-            allowFullScreen
-          ></iframe>
-        </div>
+        {/* Dynamic Agenda List */}
+        <AgendaList />
       </div>
 
       <Footer />

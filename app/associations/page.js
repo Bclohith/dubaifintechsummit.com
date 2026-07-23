@@ -1,11 +1,8 @@
-import EntityGrid from '../components/EntityGrid';
+"use client";
+
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-
-export const metadata = {
-  title: 'Associations - Dubai FinTech Summit',
-  description: 'Our Association Partners',
-};
+import EntityGrid from '../components/EntityGrid';
 
 export default function AssociationsPage() {
   return (
@@ -13,8 +10,8 @@ export default function AssociationsPage() {
       <Navbar />
       <EntityGrid 
         title="Association Partners" 
-        subtitle="Collaborating with industry bodies to build a borderless financial world." 
-        type="association" 
+        subtitle="Organizations and associations driving the future of finance alongside us." 
+        type="2" // Type 2 for association/media partners
       />
       <Footer />
     </>
