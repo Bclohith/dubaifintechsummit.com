@@ -10,93 +10,52 @@ export default function SpeakersSection() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    // Generate mock data for the Homepage Speakers Section accordion
-    setTimeout(() => {
-      const mockSpeakers = [
-        {
-          id: 1,
-          name: "H.E. Essa Kazim",
-          title: "Governor",
-          company: "DIFC, UAE",
-          photo: "/speakers/1773138551905-358d648a-dfab-4bbf-9a9d-8eed9c851380.png",
-          tag: "Keynote"
-        },
-        {
-          id: 2,
-          name: "Noel Quinn",
-          title: "Chairman",
-          company: "Julius Baer Group, UK",
-          photo: "/speakers/1773138659479-b4b31f3c-6819-4ed6-a4da-55d009dbcae5.png",
-          tag: "Speaker"
-        },
-        {
-          id: 3,
-          name: "Jenny Johnson",
-          title: "CEO",
-          company: "Franklin Templeton, USA",
-          photo: "/speakers/1773138788933-c372563f-9e29-403e-8da7-fb83736fce69.png",
-          tag: "Speaker"
-        },
-        {
-          id: 4,
-          name: "Tan Su Shan",
-          title: "CEO & Director",
-          company: "DBS Group, Singapore",
-          photo: "/speakers/1773138867713-423d0d88-3b20-4766-b1ee-86a945f1bb4c.png",
-          tag: "Speaker"
-        },
-        {
-          id: 5,
-          name: "Kentaro Okuda",
-          title: "President & CEO",
-          company: "Nomura Holdings, Inc, Japan",
-          photo: "/speakers/1773139013619-f0299db9-0981-4534-bf54-edab1a05cca7.png",
-          tag: "Speaker"
-        },
-        {
-          id: 6,
-          name: "Ryan Breslow",
-          title: "Founder & CEO",
-          company: "Bolt, USA",
-          photo: "/speakers/1773139362791-89a36de9-fc87-49c0-8516-9f6001b98476.png",
-          tag: "Speaker"
-        },
-        {
-          id: 7,
-          name: "Shri Ashishkumar Chauhan",
-          title: "MD & CEO",
-          company: "National Stock Exchange of India",
-          photo: "/speakers/1773139445550-c75c2101-e6c6-445e-875d-23d854dc67c0.png",
-          tag: "Speaker"
-        },
-        {
-          id: 8,
-          name: "H.E. Arif Amiri",
-          title: "CEO",
-          company: "DIFC Authority, UAE",
-          photo: "/speakers/1773139840556-456e41e4-0505-4fd8-95dc-3376fe94db63.png",
-          tag: "Speaker"
-        },
-        {
-          id: 9,
-          name: "Chris Hogbin",
-          title: "CEO",
-          company: "Lazard Asset Management, USA",
-          photo: "/speakers/1773140075492-497ac243-6ae2-44d4-b3fc-a1c9a6cd338a.png",
-          tag: "Speaker"
-        },
-        {
-          id: 10,
-          name: "Nicolas Moreau",
-          title: "CEO",
-          company: "HSBC Asset Management, UK",
-          photo: "/speakers/1773140197836-f1420645-6d06-4bbc-b417-c1ac658f3fb4.png",
-          tag: "Speaker"
+    const fetchSpeakers = async () => {
+      try {
+        const response = await fetch('https://api.konfhub.com/event/public/dubai-future-finance-week-2026/speakers');
+        const data = await response.json();
+        
+        let allSpeakers = [];
+        
+        // ONLY pull speakers from categories that contain "Dubai FinTech Summit ||"
+        if (data.categorized && data.categorized.length > 0) {
+          data.categorized.forEach(cat => {
+            if (cat.category_name && cat.category_name.includes('Dubai FinTech Summit ||')) {
+              if (cat.speakers && cat.speakers.length > 0) {
+                // Clean up the category name so it fits in the vertical tag
+                let cleanTag = cat.category_name.replace(/Dubai FinTech Summit\s*\|\|\s*/i, '').trim();
+                if (!cleanTag) cleanTag = 'Speaker'; 
+                
+                const mappedCatSpeakers = cat.speakers.map(s => ({...s, tag: cleanTag}));
+                allSpeakers = [...allSpeakers, ...mappedCatSpeakers];
+              }
+            }
+          });
         }
-      ];
-      setSpeakers(mockSpeakers);
-      setLoading(false);
-    }, 800);
+        
+        // Sort by speaker_order if available
+        allSpeakers.sort((a, b) => (a.speaker_order || 999) - (b.speaker_order || 999));
+
+        // Map KonfHub fields to our UI fields
+        const mappedSpeakers = allSpeakers.map(s => ({
+          id: s.speaker_id,
+          name: s.name,
+          title: s.designation || '',
+          company: s.organisation || '',
+          photo: s.image_url,
+          tag: s.tag
+        }));
+
+        // Limit to 10 for the homepage accordion UI
+        setSpeakers(mappedSpeakers.slice(0, 10));
+        setLoading(false);
+      } catch (error) {
+        console.error("Failed to fetch speakers from KonfHub:", error);
+        setLoading(false);
+      }
+    };
+
+    fetchSpeakers();
   }, []);
 
   return (
@@ -136,7 +95,7 @@ export default function SpeakersSection() {
                     <div className={styles.imageBox}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img 
-                        src={assetPath(speaker.photo)} 
+                        src={speaker.photo ? (speaker.photo.startsWith('http') ? speaker.photo : assetPath(speaker.photo)) : "https://ui-avatars.com/api/?name=" + encodeURIComponent(speaker.name) + "&background=1a1a2e&color=fff&size=500"} 
                         alt={speaker.name} 
                         className={styles.speakerImage}
                         onError={(e) => {

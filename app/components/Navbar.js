@@ -18,7 +18,16 @@ const navLinks = [
   },
   { label: 'AGENDA', href: '/agenda' },
   { label: 'SPEAKERS', href: '/speakers' },
-  { label: 'GET INVOLVED', href: '/#get-involved' },
+  { 
+    label: 'GET INVOLVED', 
+    href: '/get-involved',
+    dropdown: [
+      { label: 'BUY TICKETS', href: '/get-involved#tickets' },
+      { label: 'SPONSOR', href: '/get-involved#sponsor' },
+      { label: 'SPEAK', href: '/get-involved#speak' },
+      { label: 'ENQUIRY', href: '/get-involved#enquiry' }
+    ]
+  },
   { 
     label: 'ECOSYSTEM', 
     href: '#',
@@ -35,7 +44,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('/#home');
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,8 +74,8 @@ export default function Navbar() {
               <li 
                 key={link.label} 
                 className={styles.navItem}
-                onMouseEnter={() => link.dropdown && setDropdownOpen(true)}
-                onMouseLeave={() => link.dropdown && setDropdownOpen(false)}
+                onMouseEnter={() => link.dropdown && setOpenDropdown(link.label)}
+                onMouseLeave={() => link.dropdown && setOpenDropdown(null)}
               >
                 <Link
                   href={link.href}
@@ -87,8 +96,8 @@ export default function Navbar() {
                 
                 {/* Dropdown Menu */}
                 {link.dropdown && (
-                  <div className={`${styles.dropdownMenu} ${dropdownOpen ? styles.dropdownOpen : ''}`}>
-                    <div className={styles.dropdownInner}>
+                  <div className={`${link.isFullWidthDropdown ? styles.fullWidthDropdown : styles.dropdownMenu} ${openDropdown === link.label ? styles.dropdownOpen : ''}`}>
+                    <div className={link.isFullWidthDropdown ? styles.fullWidthInner : styles.dropdownInner}>
                       {link.dropdown.map((subItem) => (
                         <Link 
                           key={subItem.href} 

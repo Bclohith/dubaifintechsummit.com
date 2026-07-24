@@ -1,6 +1,6 @@
 .wrapper {
   min-height: 100vh;
-  background-color: #ffffff;
+  background-color: #0a0f1d;
   padding-bottom: 8rem;
   padding-top: 6rem; /* Add padding for navbar space since hero is gone */
 }
@@ -32,16 +32,26 @@
 
 .speakerCard {
   text-align: left !important;
-  border-radius: 2px !important;
+  border-radius: 12px !important;
   display: flex !important;
   flex-direction: column !important;
   gap: 12px !important;
   height: 100% !important;
   cursor: pointer !important;
-  background: #fff !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(0, 229, 229, 0.3);
+  backdrop-filter: blur(10px);
   padding: 0px !important;
   box-shadow: none !important;
   overflow: hidden;
+  transition: all 0.3s ease !important;
+}
+
+.speakerCard:hover {
+  border-color: #00e5e5 !important;
+  box-shadow: 0 10px 30px rgba(0,229,229,0.2) !important;
+  transform: translateY(-5px) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
 }
 
 .speakerImage {
@@ -52,14 +62,14 @@
 }
 
 .speakerInfo {
-  padding: 0 12px 16px 12px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
 .speakerName {
-  color: #181818 !important;
+  color: #fff !important;
   font-family: Lufga, sans-serif !important;
   font-size: 22px !important;
   font-style: normal !important;
@@ -70,7 +80,7 @@
 }
 
 .speakerTitle {
-  color: #181818 !important;
+  color: #00e5e5 !important;
   font-family: Lufga, sans-serif !important;
   font-size: 16px !important;
   font-style: normal !important;
@@ -81,7 +91,7 @@
 }
 
 .speakerOrg {
-  color: #000 !important;
+  color: #94a3b8 !important;
   font-family: Lufga, sans-serif !important;
   font-size: 16px !important;
   font-style: normal !important;
@@ -92,7 +102,7 @@
 }
 
 .speakerCountry {
-  color: #181818 !important;
+  color: #64748b !important;
   font-family: Lufga, sans-serif !important;
   font-size: 16px !important;
   font-style: normal !important;
@@ -110,7 +120,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -121,24 +132,14 @@
 .speakerModalInner {
   max-width: 900px !important;
   width: 100% !important;
-  border-radius: 0px !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(0, 229, 229, 0.5);
   overflow: hidden !important;
   position: relative !important;
-  padding: 24px !important;
+  padding: 32px !important;
   box-sizing: border-box !important;
-  background: linear-gradient(180deg, #CCF3FF 0%, #F3FCFF 49.04%, #CCF3FF 100%) !important;
-}
-
-.speakerModalInner::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 180px; 
-  height: 120px;
-  background: url("https://dubaifintechsummit.com/wp-content/uploads/2026/03/Speakers_popup-bg-shape.svg") no-repeat;
-  background-size: contain;
-  pointer-events: none;
+  background: #111827 !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 229, 229, 0.25);
 }
 
 .closeModal {
@@ -147,11 +148,16 @@
   right: 12px;
   font-size: 50px !important;
   cursor: pointer;
-  color: #082028 !important;
+  color: #fff !important;
   line-height: 0.5;
   z-index: 10;
   background: none;
   border: none;
+  transition: color 0.2s ease;
+}
+
+.closeModal:hover {
+  color: #00e5e5 !important;
 }
 
 .modalBody {
@@ -161,7 +167,7 @@
 }
 
 .modalPhoto img {
-  border-radius: 0px !important;
+  border-radius: 8px !important;
   width: 250px;
   height: auto;
   object-fit: cover;
@@ -172,7 +178,7 @@
 }
 
 .modalContent h2 {
-  color: #082028 !important;
+  color: #fff !important;
   font-family: Lufga, sans-serif !important;
   font-size: 36px !important;
   font-style: normal !important;
@@ -188,14 +194,14 @@
 }
 
 .speakerBio p {
-  color: #082028 !important;
+  color: #cbd5e1 !important;
   font-family: Lufga, sans-serif !important;
   font-size: 16px !important;
   font-style: normal !important;
   font-weight: 400 !important;
-  line-height: 150% !important;
-  border-top: solid 1.5px #0f384847;
-  padding-top: 15px !important;
+  line-height: 160% !important;
+  border-top: solid 1px rgba(0, 229, 229, 0.3);
+  padding-top: 20px !important;
   margin-top: 20px;
 }
 
@@ -239,7 +245,6 @@
       flex-direction: column;
   }
   .modalPhoto img {
-      border-radius: 0px !important;
       margin: 0px !important;
   }
   .modalContent h2 {
@@ -260,8 +265,8 @@
       width: 6px;
   }
   .speakerModalInner::-webkit-scrollbar-thumb {
-      background: #082028;
-      border-radius: 0px;
+      background: #00e5e5;
+      border-radius: 4px;
   }
 }
 
@@ -285,14 +290,14 @@
 }
 
 .loader p {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.7) !important;
 }
 
 .spinner {
   width: 40px;
   height: 40px;
   border: 3px solid rgba(0, 229, 229, 0.1);
-  border-top-color: var(--color-primary);
+  border-top-color: #00e5e5;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }

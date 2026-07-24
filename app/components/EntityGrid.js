@@ -11,10 +11,11 @@ export default function EntityGrid({ title, type, subtitle }) {
   useEffect(() => {
     // Generate beautiful mock data for the UI
     setTimeout(() => {
-      const mockData = Array.from({ length: 12 }).map((_, i) => ({
+      // 16 partners for a nice dense grid
+      const mockData = Array.from({ length: 16 }).map((_, i) => ({
         id: i + 1,
         name: `${title} Partner ${i + 1}`,
-        logo: `/${(i % 22) + 1}.png`, // Use placeholder logo paths
+        logo: `/${(i % 22) + 1}.png`, 
         url: "#"
       }));
       setEntities(mockData);
@@ -24,29 +25,33 @@ export default function EntityGrid({ title, type, subtitle }) {
 
   return (
     <div className={styles.wrapper}>
-      {/* Hero Banner */}
+      {/* Redesigned Hero Banner */}
       <div className={styles.heroBanner}>
-        <div className={styles.ambientGlow}></div>
+        {/* Animated Background Elements */}
+        <div className={styles.orbPrimary}></div>
+        <div className={styles.orbSecondary}></div>
+        <div className={styles.gridOverlay}></div>
+        
         <div className={styles.heroContent}>
           <span className={styles.preTitle}>GLOBAL NETWORK</span>
           <h1 className={styles.heroTitle}>{title}</h1>
           {subtitle && <p className={styles.heroSubtitle}>{subtitle}</p>}
-          <div className={styles.divider}></div>
         </div>
       </div>
 
-      {/* Grid Container */}
+      {/* Staggered Grid Container */}
       <div className={styles.container}>
         {loading ? (
           <div className={styles.loader}>
             <div className={styles.spinner}></div>
-            <p>Loading {title}...</p>
+            <p className={styles.loadingText}>Initializing Network...</p>
           </div>
         ) : (
           <div className={styles.grid}>
             {entities.map((entity) => (
               <a key={entity.id} href={entity.url} target="_blank" rel="noopener noreferrer" className={styles.card}>
-                <div className={styles.logoWrapper}>
+                <div className={styles.cardInner}>
+                  <div className={styles.glowEffect}></div>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img 
                     src={assetPath(entity.logo)} 

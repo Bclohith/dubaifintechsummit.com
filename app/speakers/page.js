@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import CanvasBackground from '../components/CanvasBackground';
 import styles from './SpeakersPage.module.css';
 
 export default function SpeakersPage() {
@@ -11,76 +12,50 @@ export default function SpeakersPage() {
   const [selectedSpeaker, setSelectedSpeaker] = useState(null);
 
   useEffect(() => {
-    // Simulated fetch for Dubai FinTech Summit Speakers
-    setTimeout(() => {
-      const mockSpeakers = [
-        {
-          id: 1,
-          name: "H.E. Essa Kazim",
-          title: "Governor",
-          company: "DIFC",
-          country: "UAE",
-          photo: "/essa-kazim.png",
-          bio: "Leading the future of finance in Dubai.",
-        },
-        {
-          id: 2,
-          name: "Arif Amiri",
-          title: "CEO",
-          company: "DIFC Authority",
-          country: "UAE",
-          photo: "/arif-amiri.png",
-          bio: "Driving innovation in the financial sector.",
-        },
-        {
-          id: 3,
-          name: "Brad Garlinghouse",
-          title: "CEO",
-          company: "Ripple",
-          country: "USA",
-          photo: "/placeholder.png",
-          bio: "Pioneering crypto solutions for global payments.",
-        },
-        {
-          id: 4,
-          name: "Jenny Johnson",
-          title: "President & CEO",
-          company: "Franklin Templeton",
-          country: "USA",
-          photo: "/placeholder.png",
-          bio: "Global asset management and digital assets strategy.",
-        },
-        {
-          id: 5,
-          name: "Nikolay Storonsky",
-          title: "CEO",
-          company: "Revolut",
-          country: "UK",
-          photo: "/placeholder.png",
-          bio: "Revolutionizing digital banking.",
-        },
-        {
-          id: 6,
-          name: "Dr. Bernd van Linder",
-          title: "CEO",
-          company: "Commercial Bank of Dubai",
-          country: "UAE",
-          photo: "/placeholder.png",
-          bio: "Innovating the banking landscape in the UAE.",
-        },
-        {
-          id: 7,
-          name: "Kentaro Okuda",
-          title: "President & Chief Executive Officer",
-          company: "Nomura Holdings, Inc",
-          country: "Japan",
-          photo: "https://media.konfhub.com/speakers/2026/March/10/1773139013619-f0299db9-0981-4534-bf54-edab1a05cca7.png",
-          bio: "Kentaro Okuda is the President and Group Chief Executive Officer of Nomura Holdings and President of Nomura Securities, and serves as a member of the Board of Directors of Nomura Holdings. With a long-standing career at Nomura since 1987, he has held senior leadership roles across global investment banking, including Global Head of Investment Banking, Global Head of M&A, and Joint Head of Wholesale. Previously, he served as Group Co-COO and President & CEO of Nomura Holding America, leading the firm’s Americas business. Known for his leadership in global capital markets and investment banking, Okuda brings deep insights into international financial markets and institutional strategy.",
+    const fetchSpeakers = async () => {
+      try {
+        const response = await fetch('https://api.konfhub.com/event/public/dubai-future-finance-week-2026/speakers');
+        const data = await response.json();
+        
+        let allSpeakers = [];
+        
+        // ONLY pull speakers from categories that contain "Dubai FinTech Summit ||"
+        if (data.categorized && data.categorized.length > 0) {
+          data.categorized.forEach(cat => {
+            if (cat.category_name && cat.category_name.includes('Dubai FinTech Summit ||')) {
+              if (cat.speakers && cat.speakers.length > 0) {
+                // Clean up the category name for consistency
+                let cleanTag = cat.category_name.replace(/Dubai FinTech Summit\s*\|\|\s*/i, '').trim();
+                if (!cleanTag) cleanTag = 'Speaker'; 
+                
+                const mappedCatSpeakers = cat.speakers.map(s => ({...s, tag: cleanTag}));
+                allSpeakers = [...allSpeakers, ...mappedCatSpeakers];
+              }
+            }
+          });
         }
-      ];
-      setSpeakers(mockSpeakers);
-      setLoading(false);
-    }, 800);
+        
+        allSpeakers.sort((a, b) => (a.speaker_order || 999) - (b.speaker_order || 999));
+
+        const mappedSpeakers = allSpeakers.map(s => ({
+          id: s.speaker_id,
+          name: s.name,
+          title: s.designation || '',
+          company: s.organisation || '',
+          country: s.location || '',
+          photo: s.image_url,
+          bio: s.about || '',
+        }));
+
+        setSpeakers(mappedSpeakers);
+        setLoading(false);
+      } catch (error) {
+        console.error("Failed to fetch speakers from KonfHub:", error);
+        setLoading(false);
+      }
+    };
+
+    fetchSpeakers();
 
     const handleEsc = (e) => {
       if (e.key === 'Escape') setSelectedSpeaker(null);
@@ -102,8 +77,18 @@ export default function SpeakersPage() {
   return (
     <>
       <Navbar />
+      <CanvasBackground />
       
       <div className={styles.wrapper}>
+        <div style={{ position: 'relative', zIndex: 1, paddingTop: '40px', paddingBottom: '0px' }}>
+          <h1 style={{ fontSize: '4rem', fontWeight: '800', textAlign: 'center', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '2px', background: 'linear-gradient(to right, #fff, #00e5e5)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+            Speakers
+          </h1>
+          <p style={{ textAlign: 'center', color: '#94a3b8', fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto 2rem' }}>
+            Hear from visionary leaders and industry pioneers shaping the global financial landscape.
+          </p>
+        </div>
+        
         {/* Speakers Grid Container */}
         <div className={styles.container}>
           <div className={styles.konfhubSpeakersWrap}>
@@ -122,7 +107,7 @@ export default function SpeakersPage() {
                     >
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img 
-                        src={speaker.photo} 
+                        src={speaker.photo ? (speaker.photo.startsWith('http') ? speaker.photo : speaker.photo) : "https://ui-avatars.com/api/?name=" + encodeURIComponent(speaker.name) + "&background=f0f0f0&color=181818&size=500"} 
                         alt={speaker.name} 
                         className={styles.speakerImage}
                         onError={(e) => {
@@ -155,7 +140,7 @@ export default function SpeakersPage() {
               <div className={styles.modalPhoto}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img 
-                  src={selectedSpeaker.photo} 
+                  src={selectedSpeaker.photo ? (selectedSpeaker.photo.startsWith('http') ? selectedSpeaker.photo : selectedSpeaker.photo) : "https://ui-avatars.com/api/?name=" + encodeURIComponent(selectedSpeaker.name) + "&background=f0f0f0&color=181818&size=500"} 
                   alt={selectedSpeaker.name} 
                   onError={(e) => {
                     e.target.src = "https://ui-avatars.com/api/?name=" + encodeURIComponent(selectedSpeaker.name) + "&background=f0f0f0&color=181818&size=500";

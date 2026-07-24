@@ -135,6 +135,52 @@
   color: var(--color-primary);
 }
 
+/* Full Width Sub-Nav Bar (Get Involved) */
+.fullWidthDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100vw;
+  background: #1a2738; /* Slightly lighter navy for contrast as per screenshot */
+  border-top: 2px solid rgba(255, 255, 255, 0.9);
+  padding: 1.5rem 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 99;
+}
+
+.dropdownOpen.fullWidthDropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.fullWidthInner {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around; /* Distribute items evenly across the bar */
+}
+
+.fullWidthInner a {
+  font-family: var(--font-primary, sans-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: color 0.3s ease;
+}
+
+.fullWidthInner a:hover {
+  color: var(--color-primary, #00e5e5);
+}
+
 /* CTA Group */
 .ctaGroup {
   display: none;

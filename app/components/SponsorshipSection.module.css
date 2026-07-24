@@ -1,0 +1,189 @@
+.sponsorSection {
+  position: relative;
+  width: 100%;
+  padding: 8rem 0;
+  background: transparent;
+  z-index: 2;
+}
+
+.container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title {
+  font-family: var(--font-primary, sans-serif);
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.subtitle {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+.contentWrapper {
+  display: flex;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.leftPanel {
+  flex: 1;
+  display: flex;
+}
+
+.bentoHighlight {
+  background: linear-gradient(135deg, rgba(0, 229, 229, 0.15) 0%, rgba(13, 31, 60, 0.5) 100%);
+  border: 1px solid rgba(0, 229, 229, 0.3);
+  border-radius: 30px;
+  padding: 4rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  box-shadow: inset 0 0 40px rgba(0, 229, 229, 0.1), 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.whyTitle {
+  font-family: var(--font-primary, sans-serif);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+.whyTitle::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #00e5e5;
+  margin-top: 1.5rem;
+}
+
+.whyDesc {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin-bottom: 3rem;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #000;
+  background: #00e5e5;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ctaBtn:hover {
+  background: #ffffff;
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(255,255,255,0.2);
+}
+
+.ctaBtn svg {
+  transition: transform 0.3s ease;
+}
+
+.ctaBtn:hover svg {
+  transform: translateX(4px);
+}
+
+.rightGrid {
+  flex: 1.5;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.bentoCard {
+  background: rgba(13, 31, 60, 0.4);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 2.5rem;
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.bentoCard:hover {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(0, 229, 229, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.iconWrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: rgba(0, 229, 229, 0.1);
+  color: #00e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.iconWrapper svg {
+  width: 30px;
+  height: 30px;
+}
+
+.cardTitle {
+  font-family: var(--font-primary, sans-serif);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.cardDesc {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .contentWrapper {
+    flex-direction: column;
+  }
+  .bentoHighlight {
+    padding: 3rem 2rem;
+  }
+  .whyTitle {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .rightGrid {
+    grid-template-columns: 1fr;
+  }
+}

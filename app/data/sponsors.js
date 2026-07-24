@@ -1,0 +1,265 @@
+export const sponsorsData = {
+  "sponsors": [
+    {
+      "tier": "Founding Partner & Premium Banking Partner",
+      "logos": [
+        "https://media.konfhub.com/sponsors/2026/July/08/1783515054932-00c58332-1cd9-4233-ac70-5a6bdf9cbb9d.png"
+      ]
+    },
+    {
+      "tier": "Founding Partner & Strategic Banking Partner",
+      "logos": [
+        "https://media.konfhub.com/sponsors/2026/July/08/1783502459834-03c4ce3a-03aa-42e6-b541-f1aa602d06ca.png"
+      ]
+    },
+    {
+      "tier": "Strategic Partner",
+      "logos": [
+        "https://media.konfhub.com/sponsors/2026/July/08/1783500691668-d7c24a12-b993-49af-82e7-bd02d3210923.png"
+      ]
+    },
+    {
+      "tier": "Ecosystem Partner",
+      "logos": [
+        "https://media.konfhub.com/sponsors/2026/July/08/1783500752560-0055d952-460c-472a-9cd4-dd69e406eddb.png"
+      ]
+    },
+    {
+      "tier": "Strategic Payment Partner",
+      "logos": [
+        "https://media.konfhub.com/sponsors/2026/July/08/1783502487851-307af9e2-1369-463e-99a7-1ee04657fdcf.png"
+      ]
+    },
+    {
+      "tier": "Diamond Sponsor",
+      "logos": [
+        "https://media.konfhub.com/sponsors/2026/July/08/1783500808247-96276399-c782-47ce-9db6-f135ccca7852.png"
+      ]
+    },
+    {
+      "tier": "Platinum Sponsor",
+      "logos": [
+        "https://media.konfhub.com/sponsors/2026/July/08/1783500826632-f912fe34-64ec-498d-93cc-680d72b1da6f.png",
+        "https://media.konfhub.com/sponsors/2026/July/08/1783500851880-45643111-4a23-476f-8e38-4830828b81a3.png"
+      ]
+    },
+    {
+      "tier": "Gold Sponsors",
+      "logos": [
+        "https://media.konfhub.com/sponsors/2026/July/08/1783500869531-31aa280d-8ec7-405a-aaf6-d74dd1f4b3c8.png",
+        "https://media.konfhub.com/sponsors/2026/July/08/1783500885248-2306e9f6-1c4b-4965-9c4a-9b1f29ebfd27.png"
+      ]
+    },
+    {
+      "tier": "Silver Sponsor",
+      "logos": [
+        "https://media.konfhub.com/sponsors/2026/July/08/1783500905697-821c3734-3ffa-44be-a83f-26c7ba38d87a.png",
+        "https://media.konfhub.com/sponsors/2026/July/08/1783500923146-bc34b0c6-3662-4461-8033-5309e36069fa.png",
+        "https://media.konfhub.com/sponsors/2026/July/08/1783500940745-06fef6ac-d19b-4346-9716-a2a18254fef3.png",
+        "https://media.konfhub.com/sponsors/2026/July/08/1783500956296-58fa5260-b358-41d7-ab9a-2488f7c4b6bb.png",
+        "https://media.konfhub.com/sponsors/2026/July/08/1783500974363-a1fc6ccd-0d75-4a42-8cd4-fd56a6b8372e.png",
+        "https://media.konfhub.com/sponsors/2026/July/08/1783500995246-91dd75ff-bfd7-4f5f-a39c-3f17968518a7.png"
+      ]
+    },
+    {
+      "tier": "Premium Bronze Sponsors",
+      "logos": [
+        "https://media.konfhub.com/sponsors/2026/July/08/1783501014544-43c9df47-b6fb-4768-b853-d9f1a22c64f4.png",
+        "https://media.konfhub.com/sponsors/2026/July/08/1783501043747-981976ce-f0d2-4b84-a64a-9ce6b39634a7.png",
+        "https://media.konfhub.com/sponsors/2026/July/08/1783501070027-418b7b8b-e89c-4c78-8fa4-423f1b8aca0d.png",
+        "https://media.konfhub.com/sponsors/2026/July/08/1783501098378-715bd6bb-454b-407a-b61d-ac1355695c83.png",
+        "https://media.konfhub.com/sponsors/2026/July/08/1783501115195-338b024c-e40a-4800-a8f4-2b426fe0570f.png",
+        "https://media.konfhub.com/sponsors/2026/July/08/1783501133776-8a1c7b1f-24b8-42e3-9e93-8f10ee51b93b.png",
+        "https://media.konfhub.com/sponsors/2026/July/08/1783501153362-ab778a56-a4ff-4228-a892-2c743a3fea84.png",
+        "https://media.konfhub.com/sponsors/2026/July/08/1783501179959-b418d575-8ec1-40e9-87ef-90fc49510492.png",
+        "https://media.konfhub.com/sponsors/2026/July/08/1783501203095-1a8694ae-d564-4916-8380-aafb081bbab9.png",
+        "https://media.konfhub.com/sponsors/2026/July/08/1783501227827-98ee38fe-6c51-47c1-8d16-9e441f946933.png",
+        "https://media.konfhub.com/sponsors/2026/July/08/1783501245974-23836704-d8da-40f5-8f7b-db4cf293faae.png",
+        "https://media.konfhub.com/sponsors/2026/July/08/1783501274027-4b50acdc-9b6c-4c6f-805c-c5b615487bd9.png",
+        "https://media.konfhub.com/sponsors/2026/July/08/1783501290925-cac57798-9124-46a0-9f6b-3217e212f98e.png",
+        "https://media.konfhub.com/sponsors/2026/July/08/1783501306744-f1f104b8-133c-4d38-92fd-4eafa0a6bea6.png",
+        "https://media.konfhub.com/sponsors/2026/July/08/1783501367344-ce98587c-28f6-441c-b655-4011ac1214e7.png"
+      ]
+    },
+    {
+      "tier": "Bronze Sponsors",
+      "logos": [
+        "https://media.konfhub.com/sponsors/2026/July/08/1783501384190-442ce458-bbeb-4f7e-b2ec-521b4c84cdc4.png",
+        "https://media.konfhub.com/sponsors/2026/July/08/1783501403391-3222783a-4117-42fa-96e9-f907870b5029.png",
+        "https://media.konfhub.com/sponsors/2026/July/08/1783501423110-5200b8d9-36a1-4f42-8f82-1b87ae2f2d3a.png",
+        "https://media.konfhub.com/sponsors/2026/July/08/1783501458444-b05c9c3b-960f-466d-a9b4-6cae9e8b831d.png",
+        "https://media.konfhub.com/sponsors/2026/July/08/1783501513626-2ad0e087-34b0-4e22-a9f1-ae2194d41cf9.png",
+        "https://media.konfhub.com/sponsors/2026/July/08/1783501532909-f04d5cf0-47ff-43e8-839e-0257e4a4f24c.png",
+        "https://media.konfhub.com/sponsors/2026/July/08/1783501551524-ecfe0589-eeb0-47b0-aaa7-df511ee76140.png"
+      ]
+    }
+  ],
+  "exhibitors": [
+    {
+      "tier": "Exhibitors",
+      "logos": [
+        "https://media.konfhub.com/exhibitors/2026/July/08/1783518448513-2b279c78-7aa9-4c24-b887-fe4522adc516.png",
+        "https://media.konfhub.com/exhibitors/2026/July/08/1783518464263-f58af18c-2831-46ec-af98-bf869d22459e.png",
+        "https://media.konfhub.com/exhibitors/2026/July/08/1783518479847-91e50d8f-a4e1-42e1-8e33-9a2add55b8bc.png",
+        "https://media.konfhub.com/exhibitors/2026/July/08/1783518495132-28c14bb4-be3b-4148-9c64-6aef284fe545.png",
+        "https://media.konfhub.com/exhibitors/2026/July/08/1783518510579-4771bb4e-a6a9-4385-9c17-d0ed50475f0e.png",
+        "https://media.konfhub.com/exhibitors/2026/July/08/1783518525597-c80fd156-7433-4132-ac1f-829094e7d6a8.png",
+        "https://media.konfhub.com/exhibitors/2026/July/08/1783518540929-0d9e5ed7-f0cf-4ce8-bcc5-7662da6d43ea.png",
+        "https://media.konfhub.com/exhibitors/2026/July/08/1783518556513-372a182c-fbdc-4fbd-a24f-29f8a49efcf5.png",
+        "https://media.konfhub.com/exhibitors/2026/July/08/1783518576613-61fd529e-6140-44b8-a0cd-0bb65c8e2831.png",
+        "https://media.konfhub.com/exhibitors/2026/July/08/1783518593679-806a6437-680d-4b4a-910c-7baafc6b9878.png"
+      ]
+    },
+    {
+      "tier": "Startup Exhibitor",
+      "logos": [
+        "https://media.konfhub.com/exhibitors/2026/July/08/1783518612746-509f18e9-49ce-4193-9712-4ce4d16d4088.png",
+        "https://media.konfhub.com/exhibitors/2026/July/08/1783518627597-c0a31fb9-4fbc-45b5-b75e-7a2346490a97.png",
+        "https://media.konfhub.com/exhibitors/2026/July/08/1783518642630-b26febc2-d976-4e1b-956a-b7f0c12f08a6.png",
+        "https://media.konfhub.com/exhibitors/2026/July/08/1783518665730-9f52e338-bd3d-47f4-89d5-6eac11a9cce6.png"
+      ]
+    },
+    {
+      "tier": "Startup Pods",
+      "logos": [
+        "https://media.konfhub.com/exhibitors/2026/July/08/1783518683246-0634fd36-8aa1-4054-974f-59c71ebe18bf.png",
+        "https://media.konfhub.com/exhibitors/2026/July/08/1783518699294-8857190a-da33-47a7-a44e-4d7456abc650.png",
+        "https://media.konfhub.com/exhibitors/2026/July/08/1783518714115-f7a8a120-5002-4c15-9744-48dfd5b0c394.png",
+        "https://media.konfhub.com/exhibitors/2026/July/08/1783518730164-faaa3936-4423-4144-8839-2249f2684642.png",
+        "https://media.konfhub.com/exhibitors/2026/February/23/1771839880090-e3f3b9e7-bab9-4335-b7ac-f69613cd7925.png",
+        "https://media.konfhub.com/exhibitors/2026/July/08/1783518747781-ebd7c38f-8124-45a7-b888-8c35dc04f3ac.png",
+        "https://media.konfhub.com/exhibitors/2026/July/08/1783518764112-94a89ae3-de05-4c75-a8b3-41e601dbe8d6.png"
+      ]
+    }
+  ],
+  "associations": [
+    {
+      "tier": "Knowledge Partner",
+      "logos": [
+        "https://dubaifintechsummit.com/wp-content/uploads/2026/04/Association-Partnerships-at-Dubai-FinTech-Summit-Latest-Img-2048x1366-1.png"
+      ]
+    },
+    {
+      "tier": "Association Partners",
+      "logos": [
+        "https://media.konfhub.com/partners/2026/July/08/1783515716287-a43bacc0-32fb-4c09-bdfc-97ea0ce6d7a4.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783515732151-ebc33826-9493-4ac8-99b1-5857e14b42d9.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783515757918-58f06ae6-5157-4215-b3dd-0920ae381090.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783515782218-1fb0f5cf-1446-43f0-afee-c8a6a1ac6e6c.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783516223316-7bec160c-876d-46cd-a3b6-bbde8bdcbde2.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783516271064-a74d74cc-c201-42d4-a64c-2c0fcd9500ba.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783515841617-2461b78a-8334-44e3-93c3-61afc31e1ea8.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783516308813-41a3d3fa-bff6-46b3-9567-e6c84ddd3f46.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783516330264-9a4cd414-6f57-4498-b401-1667297ef5e2.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783516350664-e22ef884-c71b-43e9-9c76-6ddf3390a985.png"
+      ]
+    }
+  ],
+  "mediaPartners": [
+    {
+      "tier": "Official Media Partner",
+      "logos": [
+        "https://media.konfhub.com/partners/2026/July/08/1783512920724-cec1ec44-1fbd-49ae-80f1-70de38564d6c.png"
+      ]
+    },
+    {
+      "tier": "Strategic Media Partner",
+      "logos": [
+        "https://media.konfhub.com/partners/2026/July/08/1783512945254-02e5217b-a4ef-40ff-94a4-0e2d2f659271.png"
+      ]
+    },
+    {
+      "tier": "Official PR & Media Intelligence Partner",
+      "logos": [
+        "https://media.konfhub.com/partners/2026/July/08/1783512966621-3fdb972e-3124-4705-9da0-dd28605547de.png"
+      ]
+    },
+    {
+      "tier": "Strategic Magazine Partner",
+      "logos": [
+        "https://media.konfhub.com/partners/2026/July/08/1783512987821-16d56648-8bd5-4876-b001-a9a1d6eff7ee.png"
+      ]
+    },
+    {
+      "tier": "Ecosystem Partner",
+      "logos": [
+        "https://media.konfhub.com/partners/2026/July/08/1783513010868-41bb7263-0633-448f-a0e2-8e06a8a15497.png"
+      ]
+    },
+    {
+      "tier": "Finance Magazine Partner",
+      "logos": [
+        "https://media.konfhub.com/partners/2026/July/08/1783513027938-f762dcea-3ce7-4128-86be-17e9d673f40f.png"
+      ]
+    },
+    {
+      "tier": "Technology Intelligence Partner",
+      "logos": [
+        "https://media.konfhub.com/partners/2026/July/08/1783513045920-fe1ec3a1-c94c-4bb1-bf7b-febfd3f05f4c.png"
+      ]
+    },
+    {
+      "tier": "Flagship Media Partner",
+      "logos": [
+        "https://media.konfhub.com/partners/2026/July/08/1783513061238-c17d767c-08a4-46c4-8c24-355badd86be5.png"
+      ]
+    },
+    {
+      "tier": "Innovation Media Partner",
+      "logos": [
+        "https://media.konfhub.com/partners/2026/July/08/1783513079238-70894490-980a-4e02-b23e-5f1d13deeddf.png"
+      ]
+    },
+    {
+      "tier": "Financial Intelligence Partner",
+      "logos": [
+        "https://media.konfhub.com/partners/2026/July/08/1783513093488-42110e29-db40-454a-8b79-143ba82bf596.png"
+      ]
+    },
+    {
+      "tier": "Digital PR Distribution Partner",
+      "logos": [
+        "https://media.konfhub.com/partners/2026/July/08/1783513118953-2753d2ef-a576-48ac-b179-13589bfc19f6.png"
+      ]
+    },
+    {
+      "tier": "Global Ecosystem Partner",
+      "logos": [
+        "https://media.konfhub.com/partners/2026/July/08/1783513161437-5d86c804-40ae-4eca-adf9-58a4af744b8e.png"
+      ]
+    },
+    {
+      "tier": "Media Partners",
+      "logos": [
+        "https://media.konfhub.com/partners/2026/July/08/1783513175868-841ec0fa-25fd-43c6-a9ed-c3796de47c25.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783513192018-5f931329-a30f-4ba1-abab-9697f57f4e9a.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783513207787-3a2f94de-5f00-4879-bdfe-1a912ef92517.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783513241502-3e8f4ddd-9cd4-4685-be66-2d57732c34fc.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783513259269-299243b5-a761-4303-8148-2020ccda81b5.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783513282167-75771508-28f5-4b58-956d-011c5926d516.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783513300285-af1a806a-15d8-414f-a998-7890f6f5a4e8.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783513317455-44896074-ebf3-4540-a1ad-d76184f83f02.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783513330985-b6d27e8b-f263-4410-8ad8-61d36458b9e8.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783513348936-730711e3-a7f4-4524-ab3c-5a5af272481b.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783513366170-ce446ae0-98a6-4793-89d5-e95d2060ede4.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783513385285-3ebef650-e231-4caf-b752-7073df5b2706.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783513421320-d15c74b2-73d2-4c7c-8aaf-4c7988abd95f.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783513440502-b240f4fd-4689-45dd-8051-ac3d74fd2109.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783513457067-4c1ea2a5-3e31-4570-ae1f-31f30c970a7c.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783513479866-0149fb76-64b9-4cb6-9a18-772f3ad2c9ee.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783513498751-8afc9aa5-e611-4fee-9ee3-0bc3330aad20.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783513517433-dd73683b-c18a-446d-8031-482cd796bf2a.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783513536003-4ac61230-64d0-405c-bd87-3d82a569aee6.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783513554665-90936134-2857-43f0-ba29-2cbc52252d28.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783513584467-ef3172ac-bfc8-4202-847b-a2d5c414f740.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783513600950-01354626-58c3-419d-8438-fc0f716d5d72.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783513620735-bbe0c231-e256-46b1-82a2-cdc1784aa950.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783513640415-c1ec50cc-fe66-4ab7-a121-f091931d11ed.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783513658015-69ddd5c3-9733-4019-93cf-dd368e3029c4.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783513680651-b12e8f03-5361-4c6d-937d-bdfd8775f0bc.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783513696585-fa985993-7086-4068-ba47-d1407e6b04ce.png",
+        "https://media.konfhub.com/partners/2026/July/08/1783513743383-5b59e9c6-a11a-4939-8984-d5d42ff04f0c.png"
+      ]
+    }
+  ]
+};

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import styles from './PartnersSection.module.css';
-import { assetPath } from '../utils/assetPath';
+import { sponsorsData } from '../data/sponsors';
 
 export default function PartnersSection() {
   const [mounted, setMounted] = useState(false);
@@ -10,6 +10,25 @@ export default function PartnersSection() {
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Extract all valid logo URLs from the hierarchical tiers, ignoring the 'General' tier
+  let allSponsors = [];
+  if (sponsorsData && sponsorsData.sponsors) {
+    sponsorsData.sponsors.forEach(tier => {
+      if (tier.tier !== 'General') {
+        tier.logos.forEach(url => {
+          if (!url.includes('Dubai-Fintech-Summit-Green-White-Logo') && !url.includes('organized-difc')) {
+            allSponsors.push(url);
+          }
+        });
+      }
+    });
+  }
+  
+  // Split the sponsors array roughly in half for the two rows
+  const midPoint = Math.ceil(allSponsors.length / 2);
+  const row1Sponsors = allSponsors.slice(0, midPoint);
+  const row2Sponsors = allSponsors.slice(midPoint);
 
   return (
     <section className={styles.section}>
@@ -27,13 +46,14 @@ export default function PartnersSection() {
         {/* Scrolling Partner Logo Ticker Row 1 - Reverse speed */}
         <div className={styles.tickerContainer}>
           <div className={`${styles.tickerTrack} ${styles.reverseTicker}`}>
-            {[...Array(22)].map((_, i) => (
+            {row1Sponsors.map((url, i) => (
               <div key={i} className={styles.logoWrapper}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={assetPath(`/${i + 1}.png`)}
-                  alt={`Partner Row1 ${i + 1}`}
+                  src={url}
+                  alt={`Partner ${i + 1}`}
                   className={styles.partnerLogo}
+                  style={{ filter: 'brightness(0) invert(1)' }}
                   onError={(e) => {
                     e.target.style.display = 'none';
                   }}
@@ -41,13 +61,14 @@ export default function PartnersSection() {
               </div>
             ))}
             {/* Duplicate for seamless looping */}
-            {[...Array(22)].map((_, i) => (
+            {row1Sponsors.map((url, i) => (
               <div key={`dup1-${i}`} className={styles.logoWrapper}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={`/${i + 1}.png`}
-                  alt={`Partner Row1 Dup ${i + 1}`}
+                  src={url}
+                  alt={`Partner Dup ${i + 1}`}
                   className={styles.partnerLogo}
+                  style={{ filter: 'brightness(0) invert(1)' }}
                   onError={(e) => {
                     e.target.style.display = 'none';
                   }}
@@ -60,13 +81,14 @@ export default function PartnersSection() {
         {/* Scrolling Partner Logo Ticker Row 2 - Forward speed */}
         <div className={styles.tickerContainer}>
           <div className={`${styles.tickerTrack} ${styles.forwardTicker}`}>
-            {[...Array(22)].map((_, i) => (
+            {row2Sponsors.map((url, i) => (
               <div key={i} className={styles.logoWrapper}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={assetPath(`/${(22 - i)}.png`)}
-                  alt={`Partner Row2 ${i + 1}`}
+                  src={url}
+                  alt={`Sponsor ${i + 1}`}
                   className={styles.partnerLogo}
+                  style={{ filter: 'brightness(0) invert(1)' }}
                   onError={(e) => {
                     e.target.style.display = 'none';
                   }}
@@ -74,13 +96,14 @@ export default function PartnersSection() {
               </div>
             ))}
             {/* Duplicate for seamless looping */}
-            {[...Array(22)].map((_, i) => (
+            {row2Sponsors.map((url, i) => (
               <div key={`dup2-${i}`} className={styles.logoWrapper}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={`/${(22 - i)}.png`}
-                  alt={`Partner Row2 Dup ${i + 1}`}
+                  src={url}
+                  alt={`Sponsor Dup ${i + 1}`}
                   className={styles.partnerLogo}
+                  style={{ filter: 'brightness(0) invert(1)' }}
                   onError={(e) => {
                     e.target.style.display = 'none';
                   }}

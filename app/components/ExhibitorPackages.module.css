@@ -1,0 +1,212 @@
+.exhibitorSection {
+  position: relative;
+  width: 100%;
+  padding: 8rem 0;
+  background: transparent;
+  z-index: 2;
+}
+
+.container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+}
+
+.packageRow {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+  background: rgba(13, 31, 60, 0.4);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.packageRow.reverse {
+  flex-direction: row-reverse;
+}
+
+.imageCol {
+  flex: 1;
+  height: 100%;
+  min-height: 500px;
+}
+
+.placeholderImage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+}
+
+.placeholderImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(13, 31, 60, 0.9) 0%, transparent 100%);
+  z-index: 1;
+}
+
+.reverse .overlay {
+  background: linear-gradient(270deg, rgba(13, 31, 60, 0.9) 0%, transparent 100%);
+}
+
+.contentCol {
+  flex: 1.2;
+  padding: 4rem 4rem 4rem 0;
+}
+
+.reverse .contentCol {
+  padding: 4rem 0 4rem 4rem;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.packageTitle {
+  font-family: var(--font-primary, sans-serif);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.priceTag {
+  background: rgba(0, 229, 229, 0.1);
+  border: 1px solid #00e5e5;
+  color: #00e5e5;
+  padding: 0.5rem 1.5rem;
+  border-radius: 30px;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.disclaimer {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.buyBtn {
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #000;
+  background: #ffffff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 3rem;
+}
+
+.buyBtn:hover {
+  background: #00e5e5;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,229,229,0.3);
+}
+
+.benefitsTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 0.5rem;
+}
+
+.benefitBlock {
+  margin-bottom: 2rem;
+}
+
+.benefitHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.benefitHeader svg {
+  width: 20px;
+  height: 20px;
+  color: #00e5e5;
+}
+
+.benefitHeader h5 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.benefitList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefitList li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+}
+
+.benefitList li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #00e5e5;
+  font-weight: 800;
+}
+
+@media (max-width: 1024px) {
+  .packageRow, .packageRow.reverse {
+    flex-direction: column;
+  }
+  
+  .imageCol, .placeholderImage {
+    width: 100%;
+    min-height: 300px;
+  }
+  
+  .overlay {
+    background: linear-gradient(180deg, transparent 0%, rgba(13, 31, 60, 0.9) 100%);
+  }
+  
+  .reverse .overlay {
+    background: linear-gradient(180deg, transparent 0%, rgba(13, 31, 60, 0.9) 100%);
+  }
+  
+  .contentCol, .reverse .contentCol {
+    padding: 2rem 2.5rem 4rem 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .headerRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
